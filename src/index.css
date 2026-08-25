@@ -1,0 +1,87 @@
+/* ==========================================================================
+   ABABAS DESIGN SYSTEM - GOOGLE STITCH KINETIC LEISURE
+   Brand: Ababas - Dép Thời Trang Trẻ Trung
+   ========================================================================== */
+
+:root {
+  /* Core Brand Colors */
+  --color-primary: #FF6B35;
+  --color-primary-hover: #E85A26;
+  --color-primary-dark: #AB3500;
+  --color-primary-light: #FFF0EB;
+  
+  --color-secondary: #1A1A2E;
+  --color-secondary-light: #5D5C74;
+  --color-accent: #C9A900;
+  --color-gold: #FFD700;
+  
+  /* Status Colors */
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-danger: #BA1A1A;
+  --color-star: #FFB800;
+
+  /* Backgrounds */
+  --bg-main: #F9F9F9;
+  --bg-subtle: #FCF9F8;
+  --bg-card: #FFFFFF;
+  --bg-dark: #1A1A2E;
+
+  /* Typography Colors */
+  --text-main: #1B1C1C;
+  --text-muted: #6B7280;
+  --text-light: #94A3B8;
+  --text-white: #FFFFFF;
+
+  /* Borders & Dividers */
+  --border-light: #E5E7EB;
+  --border-focus: #FF6B35;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.12);
+  --shadow-glow: 0 10px 25px rgba(255, 107, 53, 0.25);
+  --shadow-card-hover: 0 20px 35px -10px rgba(255, 107, 53, 0.2);
+
+  /* Radii */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Layout */
+  --max-width: 1280px;
+  --navbar-height: 80px;
+}
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text-main);
+  background-color: var(--bg-main);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

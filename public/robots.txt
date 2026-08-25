@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /tim-kiem
+Sitemap: https://ababas.netlify.app/sitemap.xml
