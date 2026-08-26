@@ -1,25 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 320" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 200" width="100%" height="100%">
   <defs>
     <style>
       .brand-wordmark {
         font-family: 'Quicksand', 'Montserrat', 'Century Gothic', -apple-system, sans-serif;
-        font-size: 88px;
-        font-weight: 500;
+        font-size: 92px;
+        font-weight: 700;
         fill: #1C1B1B;
-        letter-spacing: 4px;
+        letter-spacing: 2px;
       }
       .brand-tagline {
         font-family: 'Montserrat', -apple-system, sans-serif;
         font-size: 15px;
-        font-weight: 500;
+        font-weight: 600;
         fill: #1C1B1B;
-        letter-spacing: 2.5px;
+        letter-spacing: 1.8px;
       }
     </style>
   </defs>
 
   <!-- Official Ababas Dual Wave / Wing Symbol -->
-  <g fill="#1C1B1B">
+  <g fill="#1C1B1B" transform="translate(-40, -35)">
     <!-- Top Arc Wave Stroke -->
     <path d="M 188 108 C 190 85 208 55 242 48 C 275 42 302 62 316 112 C 285 82 256 65 236 67 C 215 69 198 86 188 108 Z" />
     
@@ -27,13 +27,13 @@
     <path d="M 182 138 C 180 120 196 104 220 98 C 248 92 278 108 300 134 C 272 118 245 110 224 114 C 205 117 192 126 182 138 Z" />
   </g>
 
-  <!-- Wordmark: ababas -->
-  <text x="250" y="222" text-anchor="middle" class="brand-wordmark">ababas</text>
+  <!-- Wordmark: ababas (Centered, Large & Crisp) -->
+  <text x="210" y="150" text-anchor="middle" class="brand-wordmark">ababas</text>
 
   <!-- Tagline: —— High Style, Low Effort, True Value —— -->
-  <g transform="translate(0, 248)">
-    <line x1="52" y1="-5" x2="105" y2="-5" stroke="#1C1B1B" stroke-width="1.5" />
-    <text x="250" y="0" text-anchor="middle" class="brand-tagline">High Style, Low Effort, True Value</text>
-    <line x1="395" y1="-5" x2="448" y2="-5" stroke="#1C1B1B" stroke-width="1.5" />
+  <g transform="translate(0, 178)">
+    <line x1="20" y1="-5" x2="68" y2="-5" stroke="#1C1B1B" stroke-width="1.8" />
+    <text x="210" y="0" text-anchor="middle" class="brand-tagline">High Style, Low Effort, True Value</text>
+    <line x1="352" y1="-5" x2="400" y2="-5" stroke="#1C1B1B" stroke-width="1.8" />
   </g>
 </svg>
