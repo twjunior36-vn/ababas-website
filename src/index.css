@@ -1,6 +1,7 @@
 /* ==========================================================================
-   ABABAS BRAND DESIGN SYSTEM - GOOGLE STITCH EDITION
+   ABABAS BRAND DESIGN SYSTEM - 100% GOOGLE STITCH FIDELITY
    Brand: Ababas - Dép Thời Trang & Charm 3D Cao Cấp
+   Palette: Olive Earth (#5E604D), Blush Rose (#81515A/#FDBEC9), Sky Mint (#0C6780/#BAEAFF), Surface Cream (#FDFDF5)
    ========================================================================== */
 
 @tailwind base;
@@ -8,12 +9,12 @@
 @tailwind utilities;
 
 :root {
-  /* Core Colors */
-  --color-primary: #FF6B35;
-  --color-primary-hover: #E85A26;
-  --color-primary-olive: #5E604D;
-  --color-secondary: #1A1A2E;
-  --color-secondary-rose: #81515A;
+  /* Core Google Stitch Colors */
+  --color-primary: #5E604D;
+  --color-primary-hover: #4A4C3C;
+  --color-primary-container: #F5F5DC;
+  --color-secondary: #81515A;
+  --color-secondary-hover: #6A3F47;
   --color-secondary-container: #FDBEC9;
   --color-tertiary: #0C6780;
   --color-tertiary-container: #E5F6FF;
@@ -23,8 +24,8 @@
   --color-pastel-mint: #B2D8D8;
 
   /* Typography */
-  --font-headline: 'Quicksand', 'Poppins', sans-serif;
-  --font-body: 'Montserrat', 'Poppins', sans-serif;
+  --font-headline: 'Quicksand', sans-serif;
+  --font-body: 'Montserrat', sans-serif;
 
   /* Border Radii */
   --radius-sm: 8px;
@@ -36,14 +37,14 @@
   --shadow-bento: 0 10px 30px -10px rgba(94, 96, 77, 0.08);
   --shadow-bento-hover: 0 20px 40px -10px rgba(94, 96, 77, 0.14);
   --shadow-rose: 0 8px 20px rgba(253, 190, 201, 0.4);
-  --shadow-orange: 0 10px 25px rgba(255, 107, 53, 0.25);
+  --shadow-olive: 0 8px 20px rgba(94, 96, 77, 0.25);
   
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Base Reset & Typography */
 html {
-  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: #1C1B1B;
   background-color: #FCF9F8;
   scroll-behavior: smooth;
@@ -60,6 +61,7 @@ body {
   flex-direction: column;
   overflow-x: hidden;
   background-color: #FCF9F8;
+  color: #1C1B1B;
 }
 
 /* Material Symbols icon support */
@@ -75,12 +77,12 @@ body {
   background: rgba(253, 253, 245, 0.75);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(229, 229, 204, 0.5);
 }
 
 .glass-card {
   background-color: #FDFDF5;
-  border: 1px solid rgba(229, 229, 204, 0.6);
+  border: 1px solid #E5E5CC;
   box-shadow: 0 15px 35px -10px rgba(129, 81, 90, 0.08);
   border-radius: 24px;
   overflow: hidden;
@@ -89,7 +91,7 @@ body {
 
 .glass-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 25px 45px -10px rgba(129, 81, 90, 0.15);
+  box-shadow: 0 25px 45px -10px rgba(129, 81, 90, 0.14);
 }
 
 .bento-card {
@@ -108,14 +110,14 @@ body {
 
 /* Stitch Signature Buttons */
 .btn-primary {
-  background: linear-gradient(135deg, #FF6B35 0%, #FF8F6B 100%);
-  color: #FFFFFF;
+  background: linear-gradient(135deg, #FDBEC9 0%, #F4B6C1 100%);
+  color: #330F19;
   border-radius: 9999px;
   padding: 14px 28px;
   font-weight: 700;
   font-family: 'Montserrat', sans-serif;
   transition: all 0.3s ease;
-  box-shadow: 0 8px 20px -3px rgba(255, 107, 53, 0.35);
+  box-shadow: 0 8px 18px -3px rgba(253, 190, 201, 0.45);
   border: none;
   cursor: pointer;
   display: inline-flex;
@@ -126,22 +128,22 @@ body {
 
 .btn-primary:hover {
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 14px 28px -5px rgba(255, 107, 53, 0.45);
+  box-shadow: 0 12px 24px -4px rgba(253, 190, 201, 0.6);
 }
 
 .btn-primary:active {
   transform: translateY(1px) scale(0.98);
 }
 
-.btn-rose {
-  background: linear-gradient(135deg, #FDBEC9 0%, #F4B6C1 100%);
-  color: #330F19;
+.btn-olive {
+  background: #5E604D;
+  color: #FFFFFF;
   border-radius: 9999px;
   padding: 14px 28px;
   font-weight: 700;
   font-family: 'Montserrat', sans-serif;
   transition: all 0.3s ease;
-  box-shadow: 0 8px 18px -3px rgba(253, 190, 201, 0.5);
+  box-shadow: 0 8px 18px -3px rgba(94, 96, 77, 0.3);
   border: none;
   cursor: pointer;
   display: inline-flex;
@@ -150,9 +152,10 @@ body {
   gap: 8px;
 }
 
-.btn-rose:hover {
+.btn-olive:hover {
+  background: #4A4C3C;
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 12px 24px -4px rgba(253, 190, 201, 0.6);
+  box-shadow: 0 12px 24px -4px rgba(94, 96, 77, 0.4);
 }
 
 .btn-secondary {
@@ -210,5 +213,5 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #FF6B35;
+  background: #81515A;
 }

@@ -8,19 +8,19 @@ export default function PartnersStrip() {
     <section className="w-full section-padding bg-surface-container-high relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        <div className="glass-card p-8 sm:p-12 lg:p-16 border-2 border-primary/20 bg-surface-cream">
+        <div className="glass-card p-8 sm:p-12 lg:p-16 border-2 border-secondary/20 bg-surface-cream">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             {/* Text side */}
             <div className="lg:col-span-8">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-tertiary-container text-tertiary rounded-full text-xs font-montserrat font-bold mb-4">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-secondary-container text-on-secondary-fixed rounded-full text-xs font-montserrat font-bold mb-4">
                 <Handshake size={15} />
                 <span>Cơ hội hợp tác B2B</span>
               </div>
 
-              <h2 className="text-2xl sm:text-4xl font-quicksand font-bold text-dark mb-4 leading-snug">
+              <h2 className="text-2xl sm:text-4xl font-quicksand font-bold text-primary mb-4 leading-snug">
                 Trở thành đại lý & nhà phân phối <br className="hidden sm:inline" />
-                <span className="text-primary">chính thức của Ababas</span>
+                <span className="text-secondary">chính thức của Ababas</span>
               </h2>
 
               <p className="text-sm sm:text-base text-on-surface-variant font-montserrat mb-8 max-w-2xl leading-relaxed">
@@ -29,16 +29,16 @@ export default function PartnersStrip() {
 
               {/* 3 Value Pillars */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-                <div className="flex items-center gap-3 bg-white/70 p-3.5 rounded-xl border border-outline-variant/30">
-                  <TrendingUp size={20} className="text-primary shrink-0" />
+                <div className="flex items-center gap-3 bg-white/80 p-3.5 rounded-xl border border-outline-variant/30">
+                  <TrendingUp size={20} className="text-secondary shrink-0" />
                   <span className="text-xs font-montserrat font-bold text-dark">Chiết khấu đến 45%</span>
                 </div>
-                <div className="flex items-center gap-3 bg-white/70 p-3.5 rounded-xl border border-outline-variant/30">
+                <div className="flex items-center gap-3 bg-white/80 p-3.5 rounded-xl border border-outline-variant/30">
                   <Truck size={20} className="text-tertiary shrink-0" />
                   <span className="text-xs font-montserrat font-bold text-dark">Giao hàng 24 - 48h</span>
                 </div>
-                <div className="flex items-center gap-3 bg-white/70 p-3.5 rounded-xl border border-outline-variant/30">
-                  <ShieldCheck size={20} className="text-secondary-rose shrink-0" />
+                <div className="flex items-center gap-3 bg-white/80 p-3.5 rounded-xl border border-outline-variant/30">
+                  <ShieldCheck size={20} className="text-primary shrink-0" />
                   <span className="text-xs font-montserrat font-bold text-dark">Đổi trả linh hoạt</span>
                 </div>
               </div>
@@ -61,8 +61,8 @@ export default function PartnersStrip() {
                 <p className="text-xs font-montserrat text-muted uppercase tracking-wider font-semibold">Đại lý toàn quốc</p>
               </div>
               <div className="bg-white p-6 rounded-2xl border border-outline-variant/40 shadow-sm text-center">
-                <div className="font-quicksand font-bold text-4xl text-secondary-rose mb-1">50.000+</div>
-                <p className="text-xs font-montserrat text-muted uppercase tracking-wider font-semibold">Đôi dép bán ra mỗi tháng</p>
+                <div className="font-quicksand font-bold text-4xl text-secondary mb-1">50.000+</div>
+                <p className="text-xs font-montserrat text-muted uppercase tracking-wider font-semibold">Đôi dép xuất kho mỗi tháng</p>
               </div>
             </div>
 

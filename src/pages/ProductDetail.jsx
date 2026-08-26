@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
   Star,
   ShieldCheck,
@@ -13,9 +13,7 @@ import {
   ChevronRight,
   Sparkles,
   ChevronDown,
-  CheckCircle2,
-  Share2,
-  Gift
+  CheckCircle2
 } from 'lucide-react';
 import ProductCard from '../components/product/ProductCard';
 import Modal from '../components/ui/Modal';
@@ -119,9 +117,9 @@ export default function ProductDetail() {
       {/* Breadcrumb */}
       <nav aria-label="Breadcrumb" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <ol className="flex items-center gap-2 text-xs sm:text-sm text-on-surface-variant font-montserrat">
-          <li><Link to="/" className="hover:text-primary transition-colors">Trang chủ</Link></li>
+          <li><Link to="/" className="hover:text-secondary transition-colors">Trang chủ</Link></li>
           <ChevronRight size={14} />
-          <li><Link to="/san-pham" className="hover:text-primary transition-colors">Sản phẩm</Link></li>
+          <li><Link to="/san-pham" className="hover:text-secondary transition-colors">Sản phẩm</Link></li>
           <ChevronRight size={14} />
           <li className="font-bold text-dark truncate max-w-[200px] sm:max-w-xs">{product.name}</li>
         </ol>
@@ -144,13 +142,13 @@ export default function ProductDetail() {
               {/* Badges */}
               <div className="absolute top-4 left-4 flex flex-col gap-2">
                 {product.isHot && (
-                  <span className="bg-secondary-container text-dark text-xs font-montserrat font-bold px-3 py-1 rounded-full shadow-sm">
+                  <span className="bg-secondary-container text-on-secondary-fixed text-xs font-montserrat font-bold px-3 py-1 rounded-full shadow-2xs">
                     Best Seller
                   </span>
                 )}
                 {product.discount > 0 && (
-                  <span className="bg-primary text-white text-xs font-montserrat font-bold px-2.5 py-1 rounded-full shadow-sm">
-                    Giảm {product.discount}%
+                  <span className="bg-tertiary text-white text-xs font-montserrat font-bold px-2.5 py-1 rounded-full shadow-2xs">
+                    Tiết kiệm {product.discount}%
                   </span>
                 )}
               </div>
@@ -161,9 +159,9 @@ export default function ProductDetail() {
                   setIsWishlisted(!isWishlisted);
                   showToast(isWishlisted ? 'Đã xóa khỏi yêu thích' : 'Đã lưu vào yêu thích', 'info');
                 }}
-                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-dark hover:text-red-500 transition-colors shadow-sm"
+                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-primary hover:text-secondary transition-colors shadow-2xs"
               >
-                <Heart size={18} className={isWishlisted ? 'text-red-500 fill-red-500' : 'text-gray-600'} />
+                <Heart size={18} className={isWishlisted ? 'text-secondary fill-secondary' : 'text-primary'} />
               </button>
             </div>
 
@@ -174,7 +172,7 @@ export default function ProductDetail() {
                   key={i}
                   onClick={() => setSelectedImage(imgUrl)}
                   className={`w-20 h-20 rounded-2xl bg-surface-container p-2 shrink-0 border-2 transition-all duration-200 overflow-hidden ${
-                    selectedImage === imgUrl ? 'border-primary shadow-sm scale-105' : 'border-transparent opacity-70 hover:opacity-100'
+                    selectedImage === imgUrl ? 'border-secondary shadow-sm scale-105' : 'border-transparent opacity-70 hover:opacity-100'
                   }`}
                 >
                   <img src={imgUrl} alt={`Thumbnail ${i}`} className="w-full h-full object-contain mix-blend-multiply" />
@@ -200,14 +198,14 @@ export default function ProductDetail() {
                 <span className="text-xs text-muted font-montserrat">• Đã bán {product.soldCount}</span>
               </div>
 
-              <h1 className="text-2xl sm:text-3xl font-quicksand font-bold text-dark leading-snug">
+              <h1 className="text-2xl sm:text-3xl font-quicksand font-bold text-primary leading-snug">
                 {product.name}
               </h1>
             </div>
 
             {/* Price Box */}
-            <div className="p-4 rounded-2xl bg-white/70 border border-outline-variant/30 flex items-baseline gap-3">
-              <span className="text-3xl font-quicksand font-bold text-primary">
+            <div className="p-4 rounded-2xl bg-white/80 border border-outline-variant/30 flex items-baseline gap-3">
+              <span className="text-3xl font-quicksand font-bold text-secondary">
                 {formatVND(currentPrice)}
               </span>
               {product.originalPrice && (
@@ -224,9 +222,9 @@ export default function ProductDetail() {
             {product.colors && product.colors.length > 0 && (
               <div>
                 <label className="text-xs font-bold text-dark uppercase tracking-wider font-montserrat block mb-2.5">
-                  Màu sắc: <span className="text-primary normal-case font-semibold">{selectedColor?.name}</span>
+                  Màu sắc: <span className="text-secondary normal-case font-semibold">{selectedColor?.name}</span>
                 </label>
-                <div className="flex gap-2.5">
+                <div className="flex flex-wrap gap-2.5">
                   {product.colors.map((color) => (
                     <button
                       key={color.name}
@@ -254,7 +252,7 @@ export default function ProductDetail() {
                   </label>
                   <button
                     onClick={() => setIsSizeGuideOpen(true)}
-                    className="inline-flex items-center gap-1 text-xs font-bold text-primary hover:underline"
+                    className="inline-flex items-center gap-1 text-xs font-bold text-secondary hover:underline"
                   >
                     <Ruler size={13} />
                     <span>Hướng dẫn đo size</span>
@@ -286,11 +284,11 @@ export default function ProductDetail() {
                 type="checkbox"
                 checked={includeCharmAddon}
                 onChange={(e) => setIncludeCharmAddon(e.target.checked)}
-                className="mt-1 w-4 h-4 rounded text-primary focus:ring-primary"
+                className="mt-1 w-4 h-4 rounded text-secondary focus:ring-secondary"
               />
               <div>
                 <div className="flex items-center gap-1.5 font-quicksand font-bold text-sm text-dark">
-                  <Sparkles size={15} className="text-secondary-rose" />
+                  <Sparkles size={15} className="text-secondary" />
                   <span>Gắn thêm Set 6 Charm 3D Cao Cấp DIY (+69.000₫)</span>
                 </div>
                 <p className="text-xs text-on-surface-variant font-montserrat mt-0.5">
@@ -304,14 +302,14 @@ export default function ProductDetail() {
               <div className="flex items-center justify-between border border-outline-variant rounded-full bg-white px-4 py-2 sm:w-32 shrink-0">
                 <button
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="text-lg font-bold text-dark hover:text-primary px-2"
+                  className="text-lg font-bold text-dark hover:text-secondary px-2"
                 >
                   -
                 </button>
                 <span className="font-montserrat font-bold text-sm">{quantity}</span>
                 <button
                   onClick={() => setQuantity(quantity + 1)}
-                  className="text-lg font-bold text-dark hover:text-primary px-2"
+                  className="text-lg font-bold text-dark hover:text-secondary px-2"
                 >
                   +
                 </button>
@@ -333,7 +331,7 @@ export default function ProductDetail() {
                 <span>Giao hàng 2 - 3 ngày</span>
               </div>
               <div className="flex flex-col items-center gap-1">
-                <RefreshCw size={18} className="text-secondary-rose" />
+                <RefreshCw size={18} className="text-secondary" />
                 <span>Đổi size 7 ngày</span>
               </div>
               <div className="flex flex-col items-center gap-1">
@@ -348,7 +346,7 @@ export default function ProductDetail() {
               <div className="rounded-xl border border-outline-variant/30 bg-white/60 overflow-hidden">
                 <button
                   onClick={() => toggleAccordion('specs')}
-                  className="w-full px-4 py-3 text-left font-quicksand font-bold text-sm text-dark flex justify-between items-center"
+                  className="w-full px-4 py-3 text-left font-quicksand font-bold text-sm text-primary flex justify-between items-center"
                 >
                   <span>Đặc tính & Chất liệu EVA</span>
                   <ChevronDown size={16} className={`transition-transform ${openAccordion === 'specs' ? 'rotate-180' : ''}`} />
@@ -367,7 +365,7 @@ export default function ProductDetail() {
               <div className="rounded-xl border border-outline-variant/30 bg-white/60 overflow-hidden">
                 <button
                   onClick={() => toggleAccordion('shipping')}
-                  className="w-full px-4 py-3 text-left font-quicksand font-bold text-sm text-dark flex justify-between items-center"
+                  className="w-full px-4 py-3 text-left font-quicksand font-bold text-sm text-primary flex justify-between items-center"
                 >
                   <span>Chính sách đổi trả & Vận chuyển</span>
                   <ChevronDown size={16} className={`transition-transform ${openAccordion === 'shipping' ? 'rotate-180' : ''}`} />
@@ -390,7 +388,7 @@ export default function ProductDetail() {
         {relatedProducts.length > 0 && (
           <div className="mt-20">
             <div className="text-center mb-10">
-              <h2 className="text-2xl sm:text-3xl font-quicksand font-bold text-dark mb-2">
+              <h2 className="text-2xl sm:text-3xl font-quicksand font-bold text-primary mb-2">
                 Có thể bạn cũng thích
               </h2>
               <p className="text-sm text-on-surface-variant font-montserrat">
@@ -417,7 +415,7 @@ export default function ProductDetail() {
           <div className="overflow-x-auto">
             <table className="w-full text-center text-xs border-collapse">
               <thead>
-                <tr className="bg-secondary-container text-dark font-bold">
+                <tr className="bg-secondary-container text-on-secondary-fixed font-bold">
                   <th className="p-2.5 border border-outline-variant/40">Size VN</th>
                   <th className="p-2.5 border border-outline-variant/40">Chiều dài chân (cm)</th>
                   <th className="p-2.5 border border-outline-variant/40">Size US / EU</th>

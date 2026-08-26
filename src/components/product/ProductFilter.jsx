@@ -20,14 +20,15 @@ export default function ProductFilter({
   ];
 
   const colors = [
-    { id: 'den', label: 'Đen', hex: '#1A1A1A' },
-    { id: 'trang', label: 'Trắng', hex: '#FFFFFF' },
-    { id: 'cam', label: 'Cam', hex: '#FF6B35' },
-    { id: 'xanh', label: 'Xanh', hex: '#00D2D3' },
-    { id: 'nau', label: 'Nâu', hex: '#8B4513' },
+    { id: 'den', label: 'Đen', hex: '#1C1B1B' },
+    { id: 'trang', label: 'Trắng Kem', hex: '#FDFDF5' },
+    { id: 'hong', label: 'Hồng Pastel', hex: '#FDBEC9' },
+    { id: 'rêu', label: 'Olive / Rêu', hex: '#5E604D' },
+    { id: 'xanh', label: 'Xanh Mint', hex: '#BAEAFF' },
+    { id: 'man', label: 'Rose Mận', hex: '#81515A' },
   ];
 
-  const sizes = [35, 36, 37, 38, 39, 40, 41, 42, 43, 44];
+  const sizes = [36, 37, 38, 39, 40, 41, 42];
 
   // Category toggle
   const handleCategoryToggle = (catId) => {
@@ -57,48 +58,52 @@ export default function ProductFilter({
   };
 
   return (
-    <div className="bg-white rounded-card border border-gray-100 p-5 shadow-sm space-y-6 font-poppins">
+    <div className="glass-card bg-white p-5 space-y-6 font-montserrat">
       
-      {/* Filter Header */}
-      <div className="flex items-center justify-between pb-4 border-b border-gray-100">
+      {/* Header & Reset Button */}
+      <div className="flex items-center justify-between pb-3 border-b border-outline-variant/30">
         <div className="flex items-center gap-2">
-          <SlidersHorizontal size={17} className="text-primary" />
-          <span className="font-bold text-base text-navy">Bộ Lọc</span>
+          <SlidersHorizontal size={16} className="text-secondary" />
+          <span className="font-quicksand font-bold text-sm text-primary">Bộ Lọc</span>
         </div>
+
         <button
           onClick={onResetFilters}
-          className="text-xs font-semibold text-primary hover:underline flex items-center gap-1 transition-colors"
+          className="inline-flex items-center gap-1 text-[11px] font-bold text-secondary hover:text-primary transition-colors"
         >
-          <RotateCcw size={12} />
+          <RotateCcw size={11} />
           <span>Đặt lại</span>
         </button>
       </div>
 
-      {/* 1. Category Accordion */}
+      {/* 1. Category Filter */}
       <div>
         <button
           onClick={() => setIsCategoryOpen(!isCategoryOpen)}
-          className="w-full flex items-center justify-between text-xs font-bold uppercase tracking-wider text-dark py-1"
+          className="w-full flex items-center justify-between text-xs font-bold uppercase tracking-wider text-dark mb-3"
         >
           <span>Danh Mục</span>
-          <ChevronDown size={15} className={`transition-transform ${isCategoryOpen ? 'rotate-180' : ''}`} />
+          <ChevronDown size={14} className={`transition-transform ${isCategoryOpen ? 'rotate-180' : ''}`} />
         </button>
+
         {isCategoryOpen && (
-          <div className="mt-3 space-y-2">
+          <div className="space-y-2">
             {categories.map((cat) => {
               const isChecked = (filters.category || []).includes(cat.id);
               return (
                 <label
                   key={cat.id}
-                  className="flex items-center gap-2.5 text-sm font-medium text-muted hover:text-navy cursor-pointer select-none"
+                  className="flex items-center gap-2.5 text-xs text-dark hover:text-secondary cursor-pointer select-none"
                 >
                   <input
                     type="checkbox"
                     checked={isChecked}
                     onChange={() => handleCategoryToggle(cat.id)}
-                    className="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary accent-primary cursor-pointer"
+                    className="w-4 h-4 rounded text-secondary focus:ring-secondary"
                   />
-                  <span className={isChecked ? 'text-navy font-bold' : ''}>{cat.label}</span>
+                  <span className={isChecked ? 'font-bold text-secondary' : 'font-normal'}>
+                    {cat.label}
+                  </span>
                 </label>
               );
             })}
@@ -106,17 +111,18 @@ export default function ProductFilter({
         )}
       </div>
 
-      {/* 2. Colors Accordion */}
-      <div className="pt-4 border-t border-gray-100">
+      {/* 2. Color Filter */}
+      <div className="border-t border-outline-variant/30 pt-4">
         <button
           onClick={() => setIsColorOpen(!isColorOpen)}
-          className="w-full flex items-center justify-between text-xs font-bold uppercase tracking-wider text-dark py-1"
+          className="w-full flex items-center justify-between text-xs font-bold uppercase tracking-wider text-dark mb-3"
         >
           <span>Màu Sắc</span>
-          <ChevronDown size={15} className={`transition-transform ${isColorOpen ? 'rotate-180' : ''}`} />
+          <ChevronDown size={14} className={`transition-transform ${isColorOpen ? 'rotate-180' : ''}`} />
         </button>
+
         {isColorOpen && (
-          <div className="mt-3 flex flex-wrap gap-2.5">
+          <div className="flex flex-wrap gap-2">
             {colors.map((c) => {
               const isSelected = (filters.colors || []).includes(c.id);
               return (
@@ -124,16 +130,13 @@ export default function ProductFilter({
                   key={c.id}
                   onClick={() => handleColorToggle(c.id)}
                   title={c.label}
-                  className={`w-7 h-7 rounded-full border-2 transition-all flex items-center justify-center ${
-                    isSelected ? 'border-primary ring-2 ring-primary ring-offset-2 scale-110' : 'border-gray-200 hover:scale-105'
+                  className={`w-7 h-7 rounded-full flex items-center justify-center border transition-all ${
+                    isSelected ? 'ring-2 ring-secondary ring-offset-2 scale-110' : 'border-outline-variant/50 hover:scale-105'
                   }`}
                   style={{ backgroundColor: c.hex }}
                 >
                   {isSelected && (
-                    <Check
-                      size={12}
-                      className={c.hex === '#FFFFFF' ? 'text-dark' : 'text-white'}
-                    />
+                    <Check size={12} className={c.hex === '#FFFFFF' || c.hex === '#FDFDF5' ? 'text-dark' : 'text-white'} />
                   )}
                 </button>
               );
@@ -142,27 +145,28 @@ export default function ProductFilter({
         )}
       </div>
 
-      {/* 3. Sizes Accordion */}
-      <div className="pt-4 border-t border-gray-100">
+      {/* 3. Size Filter */}
+      <div className="border-t border-outline-variant/30 pt-4">
         <button
           onClick={() => setIsSizeOpen(!isSizeOpen)}
-          className="w-full flex items-center justify-between text-xs font-bold uppercase tracking-wider text-dark py-1"
+          className="w-full flex items-center justify-between text-xs font-bold uppercase tracking-wider text-dark mb-3"
         >
           <span>Kích Cỡ (Size)</span>
-          <ChevronDown size={15} className={`transition-transform ${isSizeOpen ? 'rotate-180' : ''}`} />
+          <ChevronDown size={14} className={`transition-transform ${isSizeOpen ? 'rotate-180' : ''}`} />
         </button>
+
         {isSizeOpen && (
-          <div className="mt-3 grid grid-cols-5 gap-1.5">
+          <div className="grid grid-cols-4 gap-1.5">
             {sizes.map((s) => {
               const isSelected = (filters.sizes || []).includes(s);
               return (
                 <button
                   key={s}
                   onClick={() => handleSizeToggle(s)}
-                  className={`py-1.5 text-xs font-bold rounded-btn border transition-all ${
+                  className={`py-1.5 rounded-lg text-xs font-quicksand font-bold border transition-all ${
                     isSelected
-                      ? 'bg-primary text-white border-primary shadow-xs'
-                      : 'bg-light text-navy border-gray-200 hover:border-primary'
+                      ? 'bg-primary text-white border-primary shadow-sm'
+                      : 'bg-white text-dark border-outline-variant/40 hover:bg-surface-cream'
                   }`}
                 >
                   {s}
@@ -173,31 +177,30 @@ export default function ProductFilter({
         )}
       </div>
 
-      {/* 4. Price Slider Accordion */}
-      <div className="pt-4 border-t border-gray-100">
+      {/* 4. Price Slider */}
+      <div className="border-t border-outline-variant/30 pt-4">
         <button
           onClick={() => setIsPriceOpen(!isPriceOpen)}
-          className="w-full flex items-center justify-between text-xs font-bold uppercase tracking-wider text-dark py-1"
+          className="w-full flex items-center justify-between text-xs font-bold uppercase tracking-wider text-dark mb-3"
         >
-          <span>Khoảng Giá</span>
-          <ChevronDown size={15} className={`transition-transform ${isPriceOpen ? 'rotate-180' : ''}`} />
+          <span>Mức Giá Tối Đa</span>
+          <ChevronDown size={14} className={`transition-transform ${isPriceOpen ? 'rotate-180' : ''}`} />
         </button>
+
         {isPriceOpen && (
-          <div className="mt-3 space-y-3">
+          <div className="space-y-3">
             <input
               type="range"
               min="100000"
-              max="500000"
+              max="600000"
               step="20000"
-              value={filters.maxPrice || 500000}
+              value={filters.maxPrice || 600000}
               onChange={(e) => onFilterChange({ maxPrice: Number(e.target.value), page: 1 })}
-              className="w-full h-1.5 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary"
+              className="w-full accent-secondary"
             />
-            <div className="flex items-center justify-between text-xs font-semibold text-muted">
-              <span>0đ</span>
-              <span className="text-primary font-bold text-sm">
-                Tối đa: {formatVND(filters.maxPrice || 500000)}
-              </span>
+            <div className="flex justify-between text-xs font-bold text-secondary">
+              <span>100.000₫</span>
+              <span>{formatVND(filters.maxPrice || 600000)}</span>
             </div>
           </div>
         )}

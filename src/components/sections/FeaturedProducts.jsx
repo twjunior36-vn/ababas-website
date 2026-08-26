@@ -22,38 +22,44 @@ export default function FeaturedProducts() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-secondary-container text-dark rounded-full text-xs font-montserrat font-bold mb-3">
-              <Sparkles size={14} className="text-secondary-rose" />
-              <span>Xu hướng thịnh hành</span>
-            </div>
-            <h2 className="text-2xl sm:text-4xl font-quicksand font-bold text-dark mb-2">
+            <h2 className="text-2xl sm:text-4xl font-quicksand font-bold text-primary mb-2">
               Sản Phẩm Bán Chạy
             </h2>
             <p className="text-sm sm:text-base text-on-surface-variant font-montserrat">
-              Những mẫu dép và set charm 3D được yêu thích nhất mùa này.
+              Những mẫu dép được yêu thích nhất mùa này.
             </p>
           </div>
 
-          {/* Category Filter Tabs */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0">
-            {[
-              { id: 'all', label: 'Tất cả' },
-              { id: 'clog', label: 'Dép Clog' },
-              { id: 'sandal', label: 'Dép Bánh Mì' },
-              { id: 'charm', label: 'Charm 3D' },
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`px-4 py-2 rounded-full text-xs font-montserrat font-bold whitespace-nowrap transition-all duration-300 ${
-                  activeTab === tab.id
-                    ? 'bg-primary text-white shadow-sm'
-                    : 'bg-white text-dark hover:bg-surface-cream border border-outline-variant/30'
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
+          <div className="flex items-center gap-4">
+            {/* Category Filter Tabs */}
+            <div className="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0">
+              {[
+                { id: 'all', label: 'Tất cả' },
+                { id: 'clog', label: 'Dép Clog' },
+                { id: 'sandal', label: 'Dép Bánh Mì' },
+                { id: 'charm', label: 'Charm 3D' },
+              ].map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`px-4 py-2 rounded-full text-xs font-montserrat font-bold whitespace-nowrap transition-all duration-300 ${
+                    activeTab === tab.id
+                      ? 'bg-secondary text-white shadow-sm'
+                      : 'bg-white text-dark hover:bg-surface-cream border border-outline-variant/30'
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+
+            <Link
+              to="/san-pham"
+              className="text-secondary font-bold text-xs font-montserrat hover:text-tertiary transition-colors hidden md:flex items-center gap-1.5 whitespace-nowrap"
+            >
+              <span>Xem tất cả</span>
+              <ArrowRight size={14} />
+            </Link>
           </div>
         </div>
 
@@ -64,14 +70,14 @@ export default function FeaturedProducts() {
           ))}
         </div>
 
-        {/* Bottom CTA */}
-        <div className="mt-12 text-center">
+        {/* Mobile View All Button */}
+        <div className="mt-10 text-center md:hidden">
           <Link
             to="/san-pham"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-white text-dark border border-outline-variant hover:border-primary hover:text-primary transition-all duration-300 font-montserrat font-bold text-sm shadow-sm hover:shadow-md"
+            className="btn-secondary text-xs"
           >
-            <span>Xem toàn bộ 24+ mẫu dép</span>
-            <ArrowRight size={16} />
+            <span>Xem tất cả sản phẩm</span>
+            <ArrowRight size={14} />
           </Link>
         </div>
 

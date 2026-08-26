@@ -8,25 +8,33 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Stitch Ababas Brand Design System Tokens
-        primary: '#FF6B35',          // Core Brand Orange
-        'primary-hover': '#E85A26',
-        'primary-dark': '#AB3500',
-        'primary-light': '#FFF0EB',
-        'primary-fixed': '#FFDBD0',
-        'primary-olive': '#5E604D',  // Stitch Earth Tone
+        // Exact Google Stitch "Ababas Brand Design System" Palette (NO ORANGE)
+        primary: '#5E604D',          // Stitch Olive Earth Tone (Core Primary)
+        'primary-hover': '#4A4C3C',
+        'primary-dark': '#38392D',
+        'primary-light': '#F5F5DC',
+        'primary-container': '#F5F5DC',
+        'primary-fixed': '#E4E4CC',
+        'primary-fixed-dim': '#C8C8B0',
+        'on-primary': '#FFFFFF',
+        'on-primary-container': '#6F705C',
 
-        secondary: '#1A1A2E',        // Deep Navy
-        'secondary-light': '#5D5C74',// Slate Purple-Navy
-        'secondary-rose': '#81515A', // Stitch Blush Rose
+        secondary: '#81515A',        // Stitch Blush Rose / Mauve (Core Secondary)
+        'secondary-hover': '#6A3F47',
         'secondary-container': '#FDBEC9', // Soft Pastel Pink
         'secondary-fixed': '#FFD9DF',
         'secondary-fixed-dim': '#F4B6C1',
+        'on-secondary': '#FFFFFF',
+        'on-secondary-container': '#7A4A54',
+        'on-secondary-fixed': '#330F19',
 
         tertiary: '#0C6780',         // Stitch Ocean Teal
-        'tertiary-container': '#E5F6FF',
+        'tertiary-hover': '#085064',
+        'tertiary-container': '#E5F6FF', // Sky Blue Pastel
         'tertiary-fixed': '#BAEAFF',
         'tertiary-fixed-dim': '#89D0ED',
+        'on-tertiary': '#FFFFFF',
+        'on-tertiary-container': '#297791',
 
         gold: '#D4AF37',             // Stitch Premium Gold
         'premium-gold': '#D4AF37',
@@ -42,22 +50,24 @@ export default {
         'surface-variant': '#E5E2E1',
         'pure-white': '#FFFFFF',
 
+        background: '#FCF9F8',
         light: '#FCF9F8',
-        dark: '#1C1B1B',             // On-surface
+        dark: '#1C1B1B',             // On-surface (Charcoal)
+        'on-background': '#1C1B1B',
         'on-surface': '#1C1B1B',
         'on-surface-variant': '#47473F',
-        muted: '#6B7280',
-        border: '#E5E7EB',
+        muted: '#78776E',
+        border: '#E5E5CC',
         outline: '#78776E',
         'outline-variant': '#C8C7BC',
       },
       fontFamily: {
         quicksand: ['Quicksand', 'sans-serif'],
         montserrat: ['Montserrat', 'sans-serif'],
-        poppins: ['Poppins', 'sans-serif'],
-        headline: ['Quicksand', 'Poppins', 'sans-serif'],
-        body: ['Montserrat', 'Poppins', 'sans-serif'],
-        sans: ['Montserrat', 'Poppins', 'sans-serif'],
+        poppins: ['Montserrat', 'Poppins', 'sans-serif'],
+        headline: ['Quicksand', 'sans-serif'],
+        body: ['Montserrat', 'sans-serif'],
+        sans: ['Montserrat', 'sans-serif'],
       },
       fontSize: {
         'display-lg': ['48px', { lineHeight: '56px', letterSpacing: '-0.02em', fontWeight: '700' }],
@@ -70,18 +80,18 @@ export default {
         'label-sm': ['12px', { lineHeight: '16px', fontWeight: '500' }],
       },
       borderRadius: {
-        card: '20px',
+        card: '24px',
         bento: '24px',
         btn: '9999px',
         pill: '9999px',
       },
       boxShadow: {
-        soft: '0 4px 20px rgba(0, 0, 0, 0.06)',
-        hover: '0 15px 35px rgba(0, 0, 0, 0.1)',
+        soft: '0 4px 20px rgba(94, 96, 77, 0.06)',
+        hover: '0 15px 35px rgba(94, 96, 77, 0.1)',
         card: '0 10px 30px -10px rgba(94, 96, 77, 0.08)',
-        'card-hover': '0 20px 40px -10px rgba(94, 96, 77, 0.15)',
+        'card-hover': '0 20px 40px -10px rgba(129, 81, 90, 0.14)',
         'rose-glow': '0 8px 24px rgba(253, 190, 201, 0.5)',
-        'orange-glow': '0 10px 25px rgba(255, 107, 53, 0.3)',
+        'olive-glow': '0 10px 25px rgba(94, 96, 77, 0.25)',
         'ambient': '0 30px 60px rgba(94, 96, 77, 0.08)',
       },
       spacing: {

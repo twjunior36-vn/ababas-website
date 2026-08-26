@@ -5,31 +5,31 @@ import { Droplets, ArrowUpCircle, Sparkles, Wand2 } from 'lucide-react';
 const features = [
   {
     icon: Droplets,
-    title: 'Chất liệu EVA Cao Cấp',
-    description: 'Đúc nguyên khối siêu nhẹ, kháng khuẩn, chống thấm nước và chống trơn trượt chuẩn an toàn mọi bề mặt.',
+    title: 'Chất liệu EVA',
+    description: 'Cao cấp, chống trơn trượt hiệu quả, an toàn mọi địa hình.',
     badge: 'Chống trượt 100%',
-    bgIcon: 'bg-secondary-container text-secondary-rose',
+    bgIcon: 'bg-secondary-container text-secondary',
   },
   {
     icon: ArrowUpCircle,
-    title: 'Đế Dày Nâng Chiều Cao',
-    description: 'Thiết kế đế bánh mì 4 - 5cm tăng chiều cao tự nhiên, êm ái giảm áp lực lên gót chân suốt ngày dài.',
+    title: 'Đế dày êm ái',
+    description: 'Thiết kế nâng chiều cao tinh tế, êm ái từng bước chân.',
     badge: 'Đế dày 5cm',
     bgIcon: 'bg-tertiary-container text-tertiary',
   },
   {
     icon: Sparkles,
-    title: 'Charm 3D Sắc Nét DIY',
-    description: 'Tùy biến không giới hạn với hàng trăm mẫu charm 3D nổi bật, dễ dàng tháo lắp theo cá tính riêng.',
+    title: 'Charm 3D',
+    description: 'Sắc nét, đa dạng, dễ dàng tùy chỉnh theo cá tính riêng.',
     badge: 'Tự do sáng tạo',
-    bgIcon: 'bg-primary-light text-primary',
+    bgIcon: 'bg-primary-container text-primary',
   },
   {
     icon: Wand2,
-    title: 'Thiết Kế Thời Thượng',
-    description: 'Phong cách Hàn Quốc trẻ trung, bảng màu pastel ngọt ngào, dễ dàng phối mọi trang phục dạo phố.',
+    title: 'Thiết kế hiện đại',
+    description: 'Trẻ trung, thời trang, dễ dàng phối hợp nhiều trang phục.',
     badge: 'Chuẩn Vibe Gen Z',
-    bgIcon: 'bg-surface-variant text-dark',
+    bgIcon: 'bg-surface-variant text-on-surface-variant',
   },
 ];
 
@@ -39,16 +39,10 @@ export default function WhyChooseUs() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-xs font-montserrat font-bold uppercase tracking-wider text-secondary-rose bg-secondary-container px-3.5 py-1 rounded-full">
-            Đặc quyền thương hiệu
-          </span>
-          <h2 className="text-2xl sm:text-4xl font-quicksand font-bold text-dark mt-3 mb-4">
-            Vì sao chọn Ababas?
+          <h2 className="text-2xl sm:text-4xl font-quicksand font-bold text-primary mb-4">
+            Vì sao chọn Ababas
           </h2>
-          <div className="w-16 h-1 bg-primary mx-auto rounded-full mb-4" />
-          <p className="text-sm sm:text-base text-on-surface-variant font-montserrat">
-            Mỗi đôi dép Ababas không chỉ là một phụ kiện di chuyển mà còn là tuyên ngôn phong cách cá nhân đầy tự tin.
-          </p>
+          <div className="w-24 h-1 bg-secondary mx-auto rounded-full mb-4" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -61,13 +55,13 @@ export default function WhyChooseUs() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bento-card p-8 flex flex-col items-center text-center group"
+                className="glass-card p-8 flex flex-col items-center text-center group"
               >
-                <div className={`w-16 h-16 rounded-2xl ${item.bgIcon} flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 shadow-sm`}>
+                <div className={`w-16 h-16 rounded-full ${item.bgIcon} flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 shadow-sm`}>
                   <Icon size={30} />
                 </div>
                 
-                <h3 className="font-quicksand font-bold text-xl text-dark mb-3">
+                <h3 className="font-quicksand font-bold text-xl text-primary mb-3">
                   {item.title}
                 </h3>
                 
@@ -76,7 +70,7 @@ export default function WhyChooseUs() {
                 </p>
 
                 <div className="mt-6 pt-4 border-t border-outline-variant/30 w-full flex justify-center">
-                  <span className="text-xs font-bold text-primary bg-primary-light px-3 py-1 rounded-full">
+                  <span className="text-xs font-bold font-montserrat text-secondary bg-secondary-container/50 px-3 py-1 rounded-full">
                     {item.badge}
                   </span>
                 </div>

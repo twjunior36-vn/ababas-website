@@ -21,7 +21,7 @@ export default function CollectionDetail() {
       navigate('/404', { replace: true });
       return;
     }
-    trackPageView(`/bo-suu-tap/${slug}`, `BST ${collection.title} | ${BRAND_NAME}`);
+    trackPageView(`/bo-suu-tap/${slug}`, `BST ${collection.name} | ${BRAND_NAME}`);
   }, [slug, collection, navigate]);
 
   if (!collection) return null;
@@ -34,61 +34,61 @@ export default function CollectionDetail() {
       initial="initial"
       animate="animate"
       exit="exit"
-      className="collection-detail-page py-8 bg-light min-h-screen font-poppins"
+      className="collection-detail-page py-8 bg-background min-h-screen font-montserrat"
     >
       <Helmet>
-        <title>BST {collection.title} | {BRAND_NAME}</title>
+        <title>BST {collection.name} | {BRAND_NAME}</title>
         <meta name="description" content={collection.description} />
-        <link rel="canonical" href={`https://ababas.netlify.app/bo-suu-tap/${collection.slug}`} />
       </Helmet>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-xs text-muted mb-6">
-          <Link to="/" className="hover:text-primary">Trang Chủ</Link>
+          <Link to="/" className="hover:text-secondary">Trang Chủ</Link>
           <ChevronRight size={14} />
-          <Link to="/bo-suu-tap" className="hover:text-primary">Bộ Sưu Tập</Link>
+          <Link to="/bo-suu-tap" className="hover:text-secondary">Bộ Sưu Tập</Link>
           <ChevronRight size={14} />
-          <span className="text-navy font-bold">{collection.name}</span>
+          <span className="text-dark font-bold">{collection.name}</span>
         </div>
 
-        {/* Hero Banner for Collection */}
-        <div className="relative rounded-card overflow-hidden h-72 sm:h-96 mb-10 shadow-card">
-          <img
-            src={collection.image}
-            alt={collection.title}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/50 to-transparent p-6 sm:p-12 flex flex-col justify-end text-white">
-            <span className="text-xs font-bold uppercase tracking-wider bg-primary text-white px-3 py-1 rounded-pill self-start mb-3">
-              {collection.badge}
-            </span>
-            <h1 className="text-3xl sm:text-5xl font-black mb-3">
-              {collection.title}
+        {/* Hero Banner */}
+        <div className="glass-card p-8 sm:p-14 mb-10 bg-surface-cream grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="lg:col-span-7 space-y-4">
+            <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-secondary-container text-on-secondary-fixed text-xs font-bold uppercase tracking-wider">
+              <Sparkles size={14} className="text-secondary" />
+              <span>Bộ Sưu Tập Đặc Biệt</span>
+            </div>
+            <h1 className="text-3xl sm:text-5xl font-quicksand font-bold text-primary">
+              {collection.name}
             </h1>
-            <p className="text-xs sm:text-sm text-gray-200 max-w-2xl">
+            <p className="text-sm sm:text-base text-on-surface-variant leading-relaxed">
               {collection.description}
             </p>
           </div>
+
+          <div className="lg:col-span-5 h-64 rounded-2xl overflow-hidden bg-surface-container flex items-center justify-center p-4">
+            <img
+              src={collection.image}
+              alt={collection.name}
+              className="w-full h-full object-contain mix-blend-multiply"
+            />
+          </div>
         </div>
 
-        {/* Products Grid */}
-        <div className="mb-12">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-xl sm:text-2xl font-black text-navy">
-              Sản Phẩm Trong Bộ Sưu Tập ({collectionProducts.length})
+        {/* Products in this Collection */}
+        <div className="space-y-6">
+          <div className="flex items-center justify-between">
+            <h2 className="text-xl sm:text-2xl font-quicksand font-bold text-primary">
+              Sản phẩm trong bộ sưu tập ({collectionProducts.length})
             </h2>
-            <Link
-              to="/bo-suu-tap"
-              className="text-xs font-bold text-primary hover:text-primary-hover flex items-center gap-1"
-            >
+            <Link to="/bo-suu-tap" className="btn-secondary text-xs py-2 px-4">
               <ArrowLeft size={14} />
-              <span>Xem tất cả BST</span>
+              <span>Tất cả BST</span>
             </Link>
           </div>
 
-          <ProductGrid products={collectionProducts} itemsPerPage={9} />
+          <ProductGrid products={collectionProducts} />
         </div>
 
       </div>

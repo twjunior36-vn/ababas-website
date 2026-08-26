@@ -22,13 +22,13 @@ export default function NewsletterBanner() {
     <section className="w-full py-16 bg-surface-cream relative overflow-hidden border-t border-outline-variant/30">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         
-        <div className="inline-flex items-center gap-1.5 px-3.5 py-1 bg-secondary-container text-dark rounded-full text-xs font-montserrat font-bold mb-4">
-          <Sparkles size={14} className="text-secondary-rose" />
+        <div className="inline-flex items-center gap-1.5 px-3.5 py-1 bg-secondary-container text-on-secondary-fixed rounded-full text-xs font-montserrat font-bold mb-4">
+          <Sparkles size={14} className="text-secondary" />
           <span>Thành viên VIP Ababas Club</span>
         </div>
 
-        <h2 className="text-2xl sm:text-4xl font-quicksand font-bold text-dark mb-3">
-          Nhận Ngay Voucher <span className="text-primary font-black">50.000₫</span>
+        <h2 className="text-2xl sm:text-4xl font-quicksand font-bold text-primary mb-3">
+          Nhận Ngay Voucher <span className="text-secondary font-black">50.000₫</span>
         </h2>
         
         <p className="text-sm sm:text-base text-on-surface-variant font-montserrat max-w-xl mx-auto mb-8">
@@ -36,8 +36,8 @@ export default function NewsletterBanner() {
         </p>
 
         {isSubmitted ? (
-          <div className="inline-flex items-center gap-2 bg-secondary-container text-dark px-6 py-3 rounded-full font-montserrat font-bold text-sm">
-            <CheckCircle2 size={18} className="text-secondary-rose" />
+          <div className="inline-flex items-center gap-2 bg-secondary-container text-on-secondary-fixed px-6 py-3 rounded-full font-montserrat font-bold text-sm">
+            <CheckCircle2 size={18} className="text-secondary" />
             <span>Mã voucher của bạn: <strong>ABABAS50</strong> (Giảm 50k cho đơn từ 299k)</span>
           </div>
         ) : (
@@ -50,7 +50,7 @@ export default function NewsletterBanner() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Nhập email của bạn..."
                 required
-                className="w-full pl-11 pr-4 py-3.5 rounded-full bg-white border border-outline-variant focus:outline-none focus:border-primary text-sm font-montserrat"
+                className="w-full pl-11 pr-4 py-3.5 rounded-full bg-white border border-outline-variant focus:outline-none focus:border-secondary text-sm font-montserrat"
               />
             </div>
             <button type="submit" className="btn-primary whitespace-nowrap">

@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { Handshake, Store, TrendingUp, Award, Quote, ArrowRight, CheckCircle2, ShieldCheck, Truck, PhoneCall, Sparkles } from 'lucide-react';
-import { pageTransitionVariant, staggerContainerVariant, fadeUpVariant } from '../utils/animations';
+import { Handshake, TrendingUp, Truck, ShieldCheck, CheckCircle2, PhoneCall } from 'lucide-react';
+import { pageTransitionVariant } from '../utils/animations';
 import { trackPageView } from '../utils/analytics';
 import { useUI } from '../context/UIContext';
 import { BRAND_NAME } from '../utils/constants';
@@ -42,7 +41,6 @@ export default function Partners() {
     phone: '',
     email: '',
     city: '',
-    businessType: 'shop',
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -79,11 +77,11 @@ export default function Partners() {
         
         {/* Hero Section */}
         <div className="glass-card p-8 sm:p-14 text-center bg-surface-cream">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-secondary-container text-dark text-xs font-montserrat font-bold uppercase tracking-wider mb-4">
-            <Handshake size={15} className="text-secondary-rose" />
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-secondary-container text-on-secondary-fixed text-xs font-montserrat font-bold uppercase tracking-wider mb-4">
+            <Handshake size={15} />
             <span>Mạng Lưới Phân Phối Toàn Quốc</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl font-quicksand font-bold text-dark mb-4">
+          <h1 className="text-3xl sm:text-5xl font-quicksand font-bold text-primary mb-4">
             Hợp Tác Kinh Doanh Cùng Ababas
           </h1>
           <p className="text-sm sm:text-base text-on-surface-variant font-montserrat max-w-2xl mx-auto leading-relaxed">
@@ -109,10 +107,10 @@ export default function Partners() {
         {/* Tiers Breakdown */}
         <div>
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-xs font-montserrat font-bold uppercase tracking-wider text-secondary-rose bg-secondary-container px-3.5 py-1 rounded-full">
+            <span className="text-xs font-montserrat font-bold uppercase tracking-wider text-on-secondary-fixed bg-secondary-container px-3.5 py-1 rounded-full">
               Chính sách chiết khấu
             </span>
-            <h2 className="text-2xl sm:text-4xl font-quicksand font-bold text-dark mt-3 mb-2">
+            <h2 className="text-2xl sm:text-4xl font-quicksand font-bold text-primary mt-3 mb-2">
               Các Gói Hợp Tác Đại Lý
             </h2>
             <p className="text-sm text-on-surface-variant font-montserrat">
@@ -125,27 +123,27 @@ export default function Partners() {
               <div
                 key={idx}
                 className={`glass-card p-8 flex flex-col justify-between relative transition-transform duration-300 hover:-translate-y-2 ${
-                  t.featured ? 'border-2 border-primary bg-surface-cream shadow-md' : 'bg-white'
+                  t.featured ? 'border-2 border-secondary bg-surface-cream shadow-md' : 'bg-white'
                 }`}
               >
                 {t.featured && (
-                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-montserrat font-bold px-4 py-1 rounded-full shadow-sm">
+                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-secondary text-white text-xs font-montserrat font-bold px-4 py-1 rounded-full shadow-sm">
                     {t.badge}
                   </span>
                 )}
 
                 <div>
-                  <h3 className="font-quicksand font-bold text-xl text-dark mb-1">{t.name}</h3>
+                  <h3 className="font-quicksand font-bold text-xl text-primary mb-1">{t.name}</h3>
                   <p className="text-xs font-montserrat text-muted mb-4">{t.minOrder}</p>
                   
-                  <div className="text-2xl sm:text-3xl font-quicksand font-bold text-primary mb-6">
+                  <div className="text-2xl sm:text-3xl font-quicksand font-bold text-secondary mb-6">
                     {t.discount}
                   </div>
 
                   <ul className="space-y-3 font-montserrat text-xs sm:text-sm text-on-surface-variant mb-8">
                     {t.perks.map((p, pi) => (
                       <li key={pi} className="flex items-start gap-2.5">
-                        <CheckCircle2 size={16} className="text-secondary-rose shrink-0 mt-0.5" />
+                        <CheckCircle2 size={16} className="text-secondary shrink-0 mt-0.5" />
                         <span>{p}</span>
                       </li>
                     ))}
@@ -169,7 +167,7 @@ export default function Partners() {
         <div id="b2b-form" className="glass-card p-8 sm:p-14 bg-surface-cream">
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-10">
-              <h2 className="text-2xl sm:text-3xl font-quicksand font-bold text-dark mb-2">
+              <h2 className="text-2xl sm:text-3xl font-quicksand font-bold text-primary mb-2">
                 Đăng Ký Nhận Báo Giá & Hợp Tác B2B
               </h2>
               <p className="text-xs sm:text-sm text-on-surface-variant font-montserrat">
@@ -179,8 +177,8 @@ export default function Partners() {
 
             {isSubmitted ? (
               <div className="p-8 text-center bg-white rounded-2xl border border-secondary-container">
-                <CheckCircle2 size={48} className="text-primary mx-auto mb-3" />
-                <h3 className="text-xl font-quicksand font-bold text-dark mb-2">Gửi Thông Tin Thành Công!</h3>
+                <CheckCircle2 size={48} className="text-secondary mx-auto mb-3" />
+                <h3 className="text-xl font-quicksand font-bold text-primary mb-2">Gửi Thông Tin Thành Công!</h3>
                 <p className="text-xs font-montserrat text-on-surface-variant">
                   Cảm ơn bạn đã quan tâm. Đội ngũ Ababas B2B sẽ gọi điện trực tiếp qua số điện thoại bạn cung cấp.
                 </p>
@@ -196,7 +194,7 @@ export default function Partners() {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="Nguyễn Văn A"
-                      className="w-full px-4 py-3 rounded-xl border border-outline-variant bg-white focus:outline-none focus:border-primary"
+                      className="w-full px-4 py-3 rounded-xl border border-outline-variant bg-white focus:outline-none focus:border-secondary"
                     />
                   </div>
                   <div>
@@ -207,7 +205,7 @@ export default function Partners() {
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="0987 654 321"
-                      className="w-full px-4 py-3 rounded-xl border border-outline-variant bg-white focus:outline-none focus:border-primary"
+                      className="w-full px-4 py-3 rounded-xl border border-outline-variant bg-white focus:outline-none focus:border-secondary"
                     />
                   </div>
                 </div>
@@ -220,7 +218,7 @@ export default function Partners() {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="email@example.com"
-                      className="w-full px-4 py-3 rounded-xl border border-outline-variant bg-white focus:outline-none focus:border-primary"
+                      className="w-full px-4 py-3 rounded-xl border border-outline-variant bg-white focus:outline-none focus:border-secondary"
                     />
                   </div>
                   <div>
@@ -231,7 +229,7 @@ export default function Partners() {
                       value={formData.city}
                       onChange={(e) => setFormData({ ...formData, city: e.target.value })}
                       placeholder="Hà Nội, TP.HCM, Đà Nẵng,..."
-                      className="w-full px-4 py-3 rounded-xl border border-outline-variant bg-white focus:outline-none focus:border-primary"
+                      className="w-full px-4 py-3 rounded-xl border border-outline-variant bg-white focus:outline-none focus:border-secondary"
                     />
                   </div>
                 </div>
@@ -243,7 +241,7 @@ export default function Partners() {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Tôi đang có shop giày dép thời trang tại Cầu Giấy và muốn nhập số lượng 200 đôi..."
-                    className="w-full px-4 py-3 rounded-xl border border-outline-variant bg-white focus:outline-none focus:border-primary"
+                    className="w-full px-4 py-3 rounded-xl border border-outline-variant bg-white focus:outline-none focus:border-secondary"
                   />
                 </div>
 

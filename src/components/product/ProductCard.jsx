@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Heart, Star, ArrowRight, ShoppingBag } from 'lucide-react';
+import { Heart, Star, ShoppingBag } from 'lucide-react';
 import { formatVND } from '../../utils/formatCurrency';
 import { trackProductView, trackAddToCart } from '../../utils/analytics';
 import { useUI } from '../../context/UIContext';
@@ -35,7 +35,7 @@ export default function ProductCard({ product }) {
 
   return (
     <motion.div
-      whileHover={{ y: -6 }}
+      whileHover={{ y: -5 }}
       transition={{ duration: 0.3, ease: 'easeOut' }}
       onClick={handleCardClick}
       className="glass-card group cursor-pointer select-none relative flex flex-col justify-between"
@@ -43,18 +43,13 @@ export default function ProductCard({ product }) {
       {/* Badges Stack (Top-Left) */}
       <div className="absolute top-4 left-4 z-20 flex flex-col gap-1.5">
         {product.isHot && (
-          <span className="bg-secondary-container text-dark text-xs font-montserrat font-bold px-3 py-1 rounded-full shadow-sm">
+          <span className="bg-secondary-container text-on-secondary-fixed text-xs font-montserrat font-bold px-3 py-1 rounded-full shadow-2xs">
             Best Seller
           </span>
         )}
         {product.isNew && (
-          <span className="bg-tertiary text-white text-xs font-montserrat font-bold px-3 py-1 rounded-full shadow-sm">
-            Mới
-          </span>
-        )}
-        {product.discount > 0 && (
-          <span className="bg-primary text-white text-xs font-montserrat font-bold px-2.5 py-0.5 rounded-full shadow-sm">
-            -{product.discount}%
+          <span className="bg-tertiary text-on-tertiary text-xs font-montserrat font-bold px-3 py-1 rounded-full shadow-2xs">
+            New Arrival
           </span>
         )}
       </div>
@@ -63,11 +58,11 @@ export default function ProductCard({ product }) {
       <button
         onClick={handleWishlistClick}
         aria-label="Yêu thích"
-        className="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-dark hover:text-red-500 transition-colors shadow-sm"
+        className="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-primary hover:text-secondary transition-colors shadow-2xs"
       >
         <Heart
           size={16}
-          className={`transition-colors ${isWishlisted ? 'text-red-500 fill-red-500' : 'text-gray-600'}`}
+          className={`transition-colors ${isWishlisted ? 'text-secondary fill-secondary' : 'text-primary'}`}
         />
       </button>
 
@@ -84,38 +79,21 @@ export default function ProductCard({ product }) {
       {/* Product Information */}
       <div className="p-6 bg-surface-cream flex flex-col flex-grow justify-between gap-4">
         <div>
-          {/* Rating */}
-          <div className="flex items-center gap-1.5 mb-2">
-            <div className="flex text-gold">
-              {[...Array(5)].map((_, i) => (
-                <Star
-                  key={i}
-                  size={14}
-                  fill={i < Math.floor(product.rating) ? '#D4AF37' : 'none'}
-                  stroke="#D4AF37"
-                />
-              ))}
-            </div>
-            <span className="text-xs font-semibold text-muted">
-              {product.rating} ({product.reviewCount})
-            </span>
-          </div>
-
           {/* Title */}
-          <h3 className="font-quicksand font-bold text-base text-dark group-hover:text-primary transition-colors line-clamp-2 leading-snug">
+          <h3 className="font-quicksand font-bold text-lg text-primary group-hover:text-secondary transition-colors line-clamp-1 leading-snug mb-1">
             {product.name}
           </h3>
 
           {/* Color swatches */}
           {product.colors && product.colors.length > 0 && (
-            <div className="flex items-center gap-1.5 mt-3">
+            <div className="flex items-center gap-1.5 mt-2">
               <span className="text-xs text-muted font-montserrat">Màu:</span>
               <div className="flex gap-1.5">
                 {product.colors.map((c) => (
                   <span
                     key={c.name}
                     title={c.name}
-                    className="w-3.5 h-3.5 rounded-full border border-outline-variant shadow-2xs"
+                    className="w-3 h-3 rounded-full border border-outline-variant/60 shadow-2xs"
                     style={{ backgroundColor: c.hex }}
                   />
                 ))}
@@ -126,20 +104,13 @@ export default function ProductCard({ product }) {
 
         {/* Price & Action Button */}
         <div>
-          <div className="flex items-baseline gap-2 mb-3">
-            <span className="font-quicksand font-bold text-xl text-primary">
-              {formatVND(product.price)}
-            </span>
-            {product.originalPrice && (
-              <span className="text-xs text-muted line-through font-montserrat">
-                {formatVND(product.originalPrice)}
-              </span>
-            )}
-          </div>
+          <p className="font-montserrat font-bold text-base text-on-surface-variant mb-4">
+            {formatVND(product.price)}
+          </p>
 
           <button
             onClick={handleQuickAdd}
-            className="w-full btn-secondary py-2.5 text-xs font-bold"
+            className="w-full btn-secondary py-3 text-xs font-bold"
           >
             <ShoppingBag size={14} />
             <span>Thêm vào giỏ</span>

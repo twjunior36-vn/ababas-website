@@ -9,12 +9,11 @@ export default function AnnouncementBar() {
   });
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Rotate messages every 3s
   useEffect(() => {
     if (!isVisible) return;
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % ANNOUNCEMENT_MESSAGES.length);
-    }, 3000);
+    }, 3500);
     return () => clearInterval(interval);
   }, [isVisible]);
 
@@ -26,7 +25,7 @@ export default function AnnouncementBar() {
   if (!isVisible) return null;
 
   return (
-    <div className="bg-primary text-white text-xs sm:text-sm font-semibold py-2 px-4 relative z-40 overflow-hidden font-poppins">
+    <div className="bg-secondary text-white text-xs sm:text-sm font-medium py-2 px-4 relative z-40 overflow-hidden font-montserrat">
       <div className="max-w-7xl mx-auto flex items-center justify-center min-h-[22px]">
         <AnimatePresence mode="wait">
           <motion.div
@@ -37,7 +36,7 @@ export default function AnnouncementBar() {
             transition={{ duration: 0.3 }}
             className="text-center tracking-wide flex items-center gap-2"
           >
-            <Sparkles size={14} className="text-gold" />
+            <Sparkles size={14} className="text-secondary-fixed-dim" />
             <span>{ANNOUNCEMENT_MESSAGES[currentIndex]}</span>
           </motion.div>
         </AnimatePresence>
@@ -45,7 +44,7 @@ export default function AnnouncementBar() {
 
       <button
         onClick={handleClose}
-        aria-label="Close announcement bar"
+        aria-label="Đóng thông báo"
         className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 text-white/80 hover:text-white p-1 transition-colors"
       >
         <X size={15} />

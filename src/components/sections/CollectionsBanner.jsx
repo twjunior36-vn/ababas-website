@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { collections } from '../../data/products';
 
 export default function CollectionsBanner() {
@@ -12,11 +12,7 @@ export default function CollectionsBanner() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-3.5 py-1 bg-secondary-container text-dark rounded-full text-xs font-montserrat font-bold mb-3">
-              <Sparkles size={14} className="text-secondary-rose" />
-              <span>Dòng sản phẩm độc quyền</span>
-            </div>
-            <h2 className="text-2xl sm:text-4xl font-quicksand font-bold text-dark mb-2">
+            <h2 className="text-2xl sm:text-4xl font-quicksand font-bold text-primary mb-2">
               Bộ Sưu Tập Nổi Bật
             </h2>
             <p className="text-sm sm:text-base text-on-surface-variant font-montserrat">
@@ -26,7 +22,7 @@ export default function CollectionsBanner() {
 
           <Link
             to="/bo-suu-tap"
-            className="inline-flex items-center gap-2 text-sm font-montserrat font-bold text-secondary-rose hover:text-primary transition-colors"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm font-montserrat font-bold text-secondary hover:text-primary transition-colors"
           >
             <span>Xem tất cả bộ sưu tập</span>
             <ArrowRight size={16} />
@@ -55,7 +51,7 @@ export default function CollectionsBanner() {
 
               <div className="p-6 bg-surface-cream flex flex-col justify-between flex-grow">
                 <div>
-                  <h3 className="font-quicksand font-bold text-lg text-dark group-hover:text-primary transition-colors mb-1.5">
+                  <h3 className="font-quicksand font-bold text-lg text-primary group-hover:text-secondary transition-colors mb-1.5">
                     {item.name}
                   </h3>
                   <p className="text-xs text-on-surface-variant font-montserrat line-clamp-2 mb-4 leading-relaxed">
@@ -65,7 +61,7 @@ export default function CollectionsBanner() {
 
                 <Link
                   to={`/bo-suu-tap/${item.slug}`}
-                  className="inline-flex items-center justify-between text-xs font-montserrat font-bold text-dark group-hover:text-primary pt-3 border-t border-outline-variant/30 transition-colors"
+                  className="inline-flex items-center justify-between text-xs font-montserrat font-bold text-secondary group-hover:text-primary pt-3 border-t border-outline-variant/30 transition-colors"
                 >
                   <span>Khám phá ngay</span>
                   <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />

@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Sparkles, ArrowRight, Heart, ShoppingBag, Tag } from 'lucide-react';
+import { Sparkles, ArrowRight, Tag } from 'lucide-react';
 import { lookbooks, products } from '../data/products';
 import { pageTransitionVariant } from '../utils/animations';
 import { trackPageView } from '../utils/analytics';
 import { formatVND } from '../utils/formatCurrency';
 
 export default function Lookbook() {
-  const [selectedStyle, setSelectedStyle] = useState('all');
-
   useEffect(() => {
     trackPageView('/lookbook', 'Lookbook Cảm Hứng Phối Đồ | Ababas');
   }, []);
@@ -34,11 +32,11 @@ export default function Lookbook() {
       {/* Hero Banner */}
       <section className="bg-surface-cream py-14 sm:py-20 border-b border-outline-variant/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 bg-secondary-container text-dark rounded-full text-xs font-montserrat font-bold mb-4">
-            <Sparkles size={14} className="text-secondary-rose" />
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 bg-secondary-container text-on-secondary-fixed rounded-full text-xs font-montserrat font-bold mb-4">
+            <Sparkles size={14} className="text-secondary" />
             <span>Lookbook Collection 2024 – 2025</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl font-quicksand font-bold text-dark mb-4">
+          <h1 className="text-3xl sm:text-5xl font-quicksand font-bold text-primary mb-4">
             Cảm Hứng Phối Đồ Cùng Ababas
           </h1>
           <p className="text-sm sm:text-base text-on-surface-variant font-montserrat max-w-2xl mx-auto">
@@ -77,7 +75,7 @@ export default function Lookbook() {
                 {/* Content */}
                 <div className="p-6 bg-surface-cream flex flex-col justify-between flex-grow">
                   <div>
-                    <h2 className="font-quicksand font-bold text-xl text-dark mb-2">
+                    <h2 className="font-quicksand font-bold text-xl text-primary mb-2">
                       {item.title}
                     </h2>
                     <p className="text-xs sm:text-sm text-on-surface-variant font-montserrat mb-4 leading-relaxed">
@@ -86,7 +84,7 @@ export default function Lookbook() {
 
                     {/* Outfit description pill */}
                     <div className="bg-white p-3.5 rounded-xl border border-outline-variant/30 text-xs font-montserrat text-dark mb-6 flex items-start gap-2">
-                      <Tag size={15} className="text-primary shrink-0 mt-0.5" />
+                      <Tag size={15} className="text-secondary shrink-0 mt-0.5" />
                       <div>
                         <span className="font-bold block mb-0.5">Gợi ý trang phục:</span>
                         <span className="text-muted">{item.outfit}</span>
@@ -110,15 +108,15 @@ export default function Lookbook() {
                           className="w-12 h-12 rounded-lg object-contain bg-surface-container p-1"
                         />
                         <div>
-                          <h3 className="font-quicksand font-bold text-xs text-dark line-clamp-1 group-hover/item:text-primary">
+                          <h3 className="font-quicksand font-bold text-xs text-dark line-clamp-1 group-hover/item:text-secondary">
                             {product.name}
                           </h3>
-                          <span className="font-quicksand font-bold text-xs text-primary">
+                          <span className="font-quicksand font-bold text-xs text-secondary">
                             {formatVND(product.price)}
                           </span>
                         </div>
                       </div>
-                      <ArrowRight size={14} className="text-muted group-hover/item:text-primary transition-transform group-hover/item:translate-x-1" />
+                      <ArrowRight size={14} className="text-muted group-hover/item:text-secondary transition-transform group-hover/item:translate-x-1" />
                     </Link>
                   </div>
                 </div>
