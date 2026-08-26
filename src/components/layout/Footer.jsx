@@ -52,7 +52,7 @@ export default function Footer() {
               <img
                 src={logoWhite}
                 alt="ababas - High Style, Low Effort, True Value"
-                className="h-16 sm:h-20 w-auto object-contain"
+                className="h-20 sm:h-24 lg:h-28 w-auto min-w-[170px] sm:min-w-[210px] object-contain"
               />
             </Link>
 

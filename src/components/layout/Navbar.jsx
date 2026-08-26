@@ -72,12 +72,12 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           
-          {/* Brand Logo in Official Brand Identity */}
+          {/* Brand Logo in Official Brand Identity - Large & Highly Visible */}
           <Link to="/" className="flex items-center group py-0.5">
             <img
               src={logo}
               alt="ababas - High Style, Low Effort, True Value"
-              className="h-12 sm:h-15 lg:h-18 w-auto object-contain transition-transform group-hover:scale-105"
+              className="h-16 sm:h-20 lg:h-24 w-auto min-w-[140px] sm:min-w-[180px] lg:min-w-[210px] object-contain transition-transform duration-300 group-hover:scale-105"
             />
           </Link>
 
