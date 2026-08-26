@@ -5,6 +5,8 @@ import { Search, Menu, X, ChevronDown, ShoppingBag } from 'lucide-react';
 import { navLinks } from '../../data/navigation';
 import { useSearch } from '../../context/SearchContext';
 
+import logo from '../../assets/logo.svg';
+
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -70,11 +72,13 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           
-          {/* Brand Logo in Stitch Typography */}
+          {/* Brand Logo in Official Brand Identity */}
           <Link to="/" className="flex items-center group py-1">
-            <span className="text-3xl font-quicksand font-bold text-secondary tracking-tight group-hover:opacity-80 transition-opacity">
-              Ababas
-            </span>
+            <img
+              src={logo}
+              alt="ababas - High Style, Low Effort, True Value"
+              className="h-9 sm:h-11 w-auto object-contain transition-transform group-hover:scale-105"
+            />
           </Link>
 
           {/* Desktop Nav Links */}

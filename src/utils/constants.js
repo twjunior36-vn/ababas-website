@@ -2,52 +2,44 @@ export const BRAND_NAME = 'ababas';
 export const BRAND_TAGLINE = 'High Style, Low Effort, True Value';
 export const BRAND_SLOGAN = 'High Style, Low Effort, True Value';
 
-export const HOTLINE = '1900 888 666';
-export const SUPPORT_EMAIL = 'hello@ababas.vn';
+export const HOTLINE = '0987 654 321';
+export const SUPPORT_EMAIL = 'cskh@ababas.vn';
 export const WORK_HOURS = '08:00 - 22:00 (Thứ Hai – Chủ Nhật)';
 
 export const STORE_LOCATIONS = [
   {
     id: 'store-hanoi-1',
-    name: 'ABABAS Flagship Cầu Giấy',
+    name: 'ABABAS Flagship Store',
     address: 'Số 88 Phố Cầu Giấy, Quận Cầu Giấy, TP. Hà Nội',
-    phone: '024 3888 6666',
-    status: 'Mở cửa',
-  },
-  {
-    id: 'store-hanoi-2',
-    name: 'ABABAS Hoàn Kiếm Concept',
-    address: 'Số 24 Phố Hàng Bông, Quận Hoàn Kiếm, TP. Hà Nội',
-    phone: '024 3999 7777',
+    phone: '0987 654 321',
     status: 'Mở cửa',
   },
   {
     id: 'store-hcm-1',
-    name: 'ABABAS Nguyễn Trãi Hub',
+    name: 'ABABAS Showroom TP.HCM',
     address: 'Số 168 Đường Nguyễn Trãi, Quận 1, TP. Hồ Chí Minh',
-    phone: '028 3888 6666',
+    phone: '0987 654 321',
     status: 'Mở cửa',
   },
   {
     id: 'store-danang-1',
-    name: 'ABABAS Lê Duẩn Beachwalk',
+    name: 'ABABAS Đà Nẵng Hub',
     address: 'Số 45 Đường Lê Duẩn, Quận Hải Châu, TP. Đà Nẵng',
-    phone: '0236 3888 666',
+    phone: '0987 654 321',
     status: 'Mở cửa',
   }
 ];
 
 export const SOCIAL_LINKS = [
-  { name: 'Facebook', url: 'https://facebook.com/ababas.official', handle: '@ababas.official' },
-  { name: 'Instagram', url: 'https://instagram.com/ababas_footwear', handle: '@ababas_footwear' },
-  { name: 'TikTok', url: 'https://tiktok.com/@ababas.vietnam', handle: '@ababas.vietnam' },
-  { name: 'YouTube', url: 'https://youtube.com/@ababas_footwear', handle: 'ABABAS Official' },
-  { name: 'Zalo', url: 'https://zalo.me/ababas', handle: 'ABABAS CSKH' }
+  { name: 'Shopee Official', url: 'https://shopee.vn/ababas_vn', handle: 'ababas_vn' },
+  { name: 'Facebook Fanpage', url: 'https://www.facebook.com/Ababas2026', handle: 'Ababas2026' },
+  { name: 'TikTok Shop', url: 'https://www.tiktok.com/@ababas.store', handle: '@ababas.store' },
+  { name: 'Zalo CSKH', url: 'https://zalo.me', handle: 'Ababas Official' }
 ];
 
 export const ANNOUNCEMENT_MESSAGES = [
-  "🚚 Miễn phí vận chuyển đơn từ 300.000đ",
-  "🔄 Đổi trả miễn phí trong 30 ngày",
-  "⭐ Hơn 10.000 khách hàng hài lòng",
-  "🎉 Giảm 20% cho đơn hàng đầu tiên"
+  "🔥 Siêu sale Mua 2 đôi chỉ từ 179K tặng kèm Set Charm 3D độc quyền!",
+  "🛍️ Ghé thăm gian hàng chính hãng Shopee: shopee.vn/ababas_vn",
+  "🚚 Miễn phí vận chuyển toàn quốc cho đơn hàng từ 299.000₫",
+  "🔄 Đổi size miễn phí trong 7 ngày - Bảo hành chính hãng 6 tháng"
 ];

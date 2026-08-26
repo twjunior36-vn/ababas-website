@@ -322,6 +322,15 @@ export default function ProductDetail() {
                 <ShoppingBag size={18} />
                 <span>Thêm vào giỏ hàng</span>
               </button>
+
+              <a
+                href={product.shopeeUrl || 'https://shopee.vn/ababas_vn'}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary py-3.5 px-4 text-xs font-bold whitespace-nowrap flex items-center justify-center gap-1.5"
+              >
+                <span>Mua trên Shopee</span>
+              </a>
             </div>
 
             {/* Value Props Strip */}

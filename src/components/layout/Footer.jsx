@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ShieldCheck, RefreshCw, Truck, ArrowUpRight } from 'lucide-react';
 import { footerLinks } from '../../data/navigation';
-import { HOTLINE, SUPPORT_EMAIL, STORE_LOCATIONS } from '../../utils/constants';
+import { HOTLINE, SUPPORT_EMAIL, STORE_LOCATIONS, SOCIAL_LINKS } from '../../utils/constants';
+import logoWhite from '../../assets/logo-white.svg';
 
 export default function Footer() {
   return (
@@ -48,13 +49,15 @@ export default function Footer() {
           {/* Column 1: Brand Info (5 cols) */}
           <div className="md:col-span-5 space-y-4">
             <Link to="/" className="inline-block py-1">
-              <span className="text-4xl font-quicksand font-bold text-white tracking-tight">
-                Ababas
-              </span>
+              <img
+                src={logoWhite}
+                alt="ababas - High Style, Low Effort, True Value"
+                className="h-12 sm:h-14 w-auto object-contain"
+              />
             </Link>
 
             <p className="text-xs font-bold text-secondary-fixed-dim uppercase tracking-wider">
-              Dép xinh nâng tầm phong cách • EVA cao cấp
+              High Style, Low Effort, True Value
             </p>
 
             <p className="text-xs text-gray-400 leading-relaxed max-w-md">

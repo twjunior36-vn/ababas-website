@@ -1,26 +1,39 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 320" width="100%" height="100%">
   <defs>
     <style>
-      .logo-text-white { font-family: 'Quicksand', 'Montserrat', -apple-system, sans-serif; font-size: 64px; font-weight: 700; fill: #FFFFFF; letter-spacing: 6px; }
-      .tagline-text-white { font-family: 'Montserrat', -apple-system, sans-serif; font-size: 13.5px; font-weight: 500; fill: #F4B6C1; letter-spacing: 2px; }
+      .brand-wordmark-white {
+        font-family: 'Quicksand', 'Montserrat', 'Century Gothic', -apple-system, sans-serif;
+        font-size: 88px;
+        font-weight: 500;
+        fill: #FFFFFF;
+        letter-spacing: 4px;
+      }
+      .brand-tagline-white {
+        font-family: 'Montserrat', -apple-system, sans-serif;
+        font-size: 15px;
+        font-weight: 500;
+        fill: #F4B6C1;
+        letter-spacing: 2.5px;
+      }
     </style>
   </defs>
 
-  <!-- Wing / Wave Swoosh Symbol in Stitch Rose -->
-  <g fill="#FDBEC9" transform="translate(0, -5)">
-    <!-- Upper Swoosh -->
-    <path d="M 160 85 C 150 72 165 48 190 42 C 215 36 240 50 262 90 C 235 72 210 55 188 56 C 172 57 163 70 160 85 Z" />
-    <!-- Lower Swoosh -->
-    <path d="M 152 108 C 148 95 158 84 175 79 C 195 74 216 83 234 103 C 214 93 194 88 178 90 C 165 92 156 100 152 108 Z" />
+  <!-- Official Ababas Dual Wave / Wing Symbol in White -->
+  <g fill="#FFFFFF">
+    <!-- Top Arc Wave Stroke -->
+    <path d="M 188 108 C 190 85 208 55 242 48 C 275 42 302 62 316 112 C 285 82 256 65 236 67 C 215 69 198 86 188 108 Z" />
+    
+    <!-- Bottom Swell Wave Stroke -->
+    <path d="M 182 138 C 180 120 196 104 220 98 C 248 92 278 108 300 134 C 272 118 245 110 224 114 C 205 117 192 126 182 138 Z" />
   </g>
 
-  <!-- Brand Name: ababas -->
-  <text x="200" y="165" text-anchor="middle" class="logo-text-white">ababas</text>
+  <!-- Wordmark: ababas -->
+  <text x="250" y="222" text-anchor="middle" class="brand-wordmark-white">ababas</text>
 
   <!-- Tagline: —— High Style, Low Effort, True Value —— -->
-  <g transform="translate(0, 185)">
-    <line x1="45" y1="-5" x2="88" y2="-5" stroke="#F4B6C1" stroke-width="1" opacity="0.6" />
-    <text x="200" y="0" text-anchor="middle" class="tagline-text-white">High Style, Low Effort, True Value</text>
-    <line x1="312" y1="-5" x2="355" y2="-5" stroke="#F4B6C1" stroke-width="1" opacity="0.6" />
+  <g transform="translate(0, 248)">
+    <line x1="52" y1="-5" x2="105" y2="-5" stroke="#F4B6C1" stroke-width="1.5" opacity="0.8" />
+    <text x="250" y="0" text-anchor="middle" class="brand-tagline-white">High Style, Low Effort, True Value</text>
+    <line x1="395" y1="-5" x2="448" y2="-5" stroke="#F4B6C1" stroke-width="1.5" opacity="0.8" />
   </g>
 </svg>
