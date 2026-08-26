@@ -1,55 +1,55 @@
 /**
- * ABABAS Collections Data
+ * ABABAS Collections Data - Google Stitch Design System Dataset
  */
 
 export const collections = [
   {
-    id: 'col-he-2025',
-    slug: 'he-2025',
-    title: 'Hè 2025 – Rực Rỡ & Năng Động',
-    name: 'Hè 2025',
-    subtitle: 'Năng Động & Bùng Cháy Dưới Nắng',
-    description: 'Bộ sưu tập mang gam màu cam cháy, xanh ngọc biển cùng chất liệu EVA chống nước hoàn hảo cho mọi chuyến du lịch mùa hè.',
-    image: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=800&auto=format&fit=crop&q=80',
+    id: 'cloud-walker',
+    slug: 'cloud-walker',
+    title: 'Cloud Walker Edition – Nâng Chiều Cao Tôn Dáng',
+    name: 'Cloud Walker',
+    subtitle: 'Đế Dày 5cm • Êm Ái Từng Bước Chân • Kèm Set Charm 3D',
+    description: 'Dòng sản phẩm Clog bánh mì cao cấp đúc bọt khí EVA mật độ cao, giảm áp lực bàn chân, chống trơn trượt tối đa.',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD7tkHfhyBn3jm03syrvuMDsreOXwKvch7928AoUT6XwIY_KoqFLExTY4cOm6KjXSocuMcdXmkyyTHn_3chkN5mSK9SJjtiHmsQm1oQhd4hI5-hPSJd7yMVx5iDJYV72sBxG5mbRXJW2knrvHcm0OiEkN5Q-qEwiFRgfdwn-BPBRycf_MKbHUdzvRS-RhjncOJaLFerDC8bjQE4pdGIL1bTT6sK3r1kVdYxp5U-g4Qp1SWvPLJikBhN5A',
+    itemCount: 8,
+    badge: 'Best Seller',
+    featured: true
+  },
+  {
+    id: 'pink-bloom',
+    slug: 'pink-bloom',
+    title: 'Pink Bloom Pastel – Ngọt Ngào Nữ Tính',
+    name: 'Pink Bloom',
+    subtitle: 'Sắc Hồng Phấn Dịu Dàng • Charm Hoa 3D Tinh Tế',
+    description: 'Phiên bản phối màu pastel nữ tính cùng các chi tiết charm hoa 3D và ngọc trai siêu xinh cho nàng tự tin tỏa sáng.',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA9d0HfIEAKyi413xzvSF_X2fcl_P5DhzAMRnfxT0CD8jRidCqL_uUyANMI8pWDcq7MUsluCOWsmwCyEZPuAFS7VT3_p6tXx94aBHwmK3h9C_noqKq-DC9bp920luJ5XFz3hQgjY3qJ7uyvard8s1eTFnjNcK_jNDSrNaygcvQei30PHUyztJZxwuu5k8DmZ0zWqt-Q6fNtaav-Vjx5kYFRH8FDjGZNHR1sKJXlRrBitFKz9tHMlu1tjQ',
     itemCount: 6,
     badge: 'Mới Nhất',
     featured: true
   },
   {
-    id: 'col-streetwear',
+    id: 'streetwear',
     slug: 'streetwear',
-    title: 'Urban Streetwear – Phá Cách Đô Thị',
+    title: 'Urban Streetwear – Phong Cách Đô Thị',
     name: 'Streetwear',
-    subtitle: 'Chất Đường Phố – Định Hình Phong Cách',
-    description: 'Form dáng Chunky bánh mì đế dày 4.5cm và sandal dây dù cyber đậm chất đường phố dành cho bạn trẻ Gen Z.',
-    image: 'https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=800&auto=format&fit=crop&q=80',
+    subtitle: 'Tông Đen Huyền Bí • Phụ Kiện Kim Loại Sang Trọng',
+    description: 'Dành cho những tâm hồn tự do yêu thích phong cách streetwear mạnh mẽ, cá tính và không ngại khác biệt.',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAtxT9VvDj1ihwpNCIy2gjKg8gmJApnsRn0ggpBsR9HQGFTvxKQFQnYrAhM1Wr5zoRGr9Gc8v9Xher0G2tex1lkbhlz1SX2khczp8l6VSknILgIFa4snjNbDqtRpA4gnbol6fx4aVljM5l_xIW1Xj4IM3fPv5QI0Kx2dLrHgeogA28hdWqdrKyLGUcEsmvnTIIAcLE09WNRbDI10YLA8y4PNcO8W5nSadDSkDAN-YwWrIxIlxBOh0W4xQ',
     itemCount: 8,
     badge: 'Hot Trend',
     featured: true
   },
   {
-    id: 'col-classic',
-    slug: 'classic',
-    title: 'Classic Comfort – Êm Ái Mỗi Ngày',
-    name: 'Classic',
-    subtitle: 'Tối Giản, Bền Bỉ & Nâng Niu Bàn Chân',
-    description: 'Những mẫu dép tối giản thanh lịch, đệm bọt khí êm dịu, dễ dàng phối hợp cùng mọi trang phục thường nhật.',
-    image: 'https://images.unsplash.com/photo-1603808033192-082d6919d3e1?w=800&auto=format&fit=crop&q=80',
-    itemCount: 6,
-    badge: 'Bán Chạy',
+    id: 'charms',
+    slug: 'charms',
+    title: 'Charm 3D DIY Studio – Tự Do Sáng Tạo',
+    name: 'Charm 3D DIY',
+    subtitle: 'Hơn 100+ Mẫu Charm 3D Sắc Nét • Khẳng Định Chất Riêng',
+    description: 'Bộ sưu tập charm 3D nhựa dẻo cao cấp gắn dép clog, mang lại vẻ ngoài độc nhất vô nhị cho đôi dép của bạn.',
+    image: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=800&auto=format&fit=crop&q=80',
+    itemCount: 15,
+    badge: 'Phụ Kiện DIY',
     featured: true
-  },
-  {
-    id: 'col-limited',
-    slug: 'limited',
-    title: 'Limited Edition – Độc Bản Giới Hạn',
-    name: 'Limited',
-    subtitle: 'Dát Vàng, Dạ Quang & Chi Tiết Đính Đá',
-    description: 'Dòng sản phẩm độc quyền với số lượng sản xuất giới hạn, tôn vinh đẳng cấp cá nhân trong các sự kiện và lễ hội.',
-    image: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=800&auto=format&fit=crop&q=80',
-    itemCount: 4,
-    badge: 'Limited',
-    featured: false
   }
 ];
 

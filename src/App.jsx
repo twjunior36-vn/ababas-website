@@ -23,6 +23,7 @@ import CollectionDetail from './pages/CollectionDetail';
 import Partners from './pages/Partners';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Lookbook from './pages/Lookbook';
 import SearchResults from './pages/SearchResults';
 import SizeGuide from './pages/SizeGuide';
 import Policy from './pages/Policy';
@@ -41,6 +42,7 @@ function AnimatedRoutes() {
         <Route path="/san-pham/:slug" element={<ProductDetail />} />
         <Route path="/bo-suu-tap" element={<Collections />} />
         <Route path="/bo-suu-tap/:slug" element={<CollectionDetail />} />
+        <Route path="/lookbook" element={<Lookbook />} />
         <Route path="/doi-tac" element={<Partners />} />
         <Route path="/ve-chung-toi" element={<About />} />
         <Route path="/lien-he" element={<Contact />} />

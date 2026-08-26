@@ -1,28 +1,20 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { Flame, Target, Compass, Heart, Award, Sparkles, CheckCircle2 } from 'lucide-react';
-import StatsCounter from '../components/sections/StatsCounter';
-import { pageTransitionVariant, staggerContainerVariant, fadeUpVariant } from '../utils/animations';
+import { Sparkles, Target, Heart, Award, CheckCircle2, ShieldCheck, Factory } from 'lucide-react';
+import { pageTransitionVariant } from '../utils/animations';
 import { trackPageView } from '../utils/analytics';
-import { BRAND_NAME, BRAND_SLOGAN, BRAND_TAGLINE } from '../utils/constants';
+import { BRAND_NAME } from '../utils/constants';
 
 export default function About() {
   useEffect(() => {
     trackPageView('/ve-chung-toi', `Về Chúng Tôi – Câu Chuyện Thương Hiệu | ${BRAND_NAME}`);
   }, []);
 
-  const timeline = [
-    { year: '2023', title: 'Khởi Đầu Đầy Đam Mê', desc: 'Thành lập studio thiết kế đầu tiên tại Hà Nội, phát triển mẫu dép đúc quai ngang ABABAS Classic.' },
-    { year: '2024', title: 'Đột Phá Thị Trường', desc: 'Cán mốc 50.000 đôi dép bán ra, phủ sóng trên các sàn TMĐT và chuỗi cửa hàng thời trang.' },
-    { year: '2025', title: 'Nâng Tầm Trải Nghiệm', desc: 'Ra mắt công nghệ đệm khí Cushion Cloud và mở rộng hệ thống đại lý trên toàn quốc.' },
-  ];
-
-  const team = [
-    { name: 'Nguyễn Thành Nam', role: 'Founder & CEO', image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop&q=80' },
-    { name: 'Trần Thảo Linh', role: 'Head of Design', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=80' },
-    { name: 'Lê Hoàng Quân', role: 'Production Director', image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&auto=format&fit=crop&q=80' },
-    { name: 'Vũ Hải Yến', role: 'Brand & Marketing Manager', image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&auto=format&fit=crop&q=80' },
+  const milestones = [
+    { year: '2023', title: 'Khởi Đầu Sáng Tạo', desc: 'Thành lập studio thiết kế và nghiên cứu vật liệu bọt khí EVA mật độ cao.' },
+    { year: '2024', title: 'Ra Mắt Dòng Clog 3D DIY', desc: 'Đột phá với hơn 50.000 đôi dép Clog và set Charm 3D tùy chỉnh đến tay khách hàng trẻ.' },
+    { year: '2025', title: 'Mở Rộng Hệ Thống B2B', desc: 'Phủ sóng hơn 150 đại lý toàn quốc và phát triển công nghệ sản xuất bền vững thân thiện môi trường.' },
   ];
 
   return (
@@ -31,125 +23,111 @@ export default function About() {
       initial="initial"
       animate="animate"
       exit="exit"
-      className="about-page py-10 bg-light min-h-screen font-poppins space-y-16"
+      className="about-page py-12 bg-background min-h-screen space-y-16"
     >
       <Helmet>
         <title>Về Chúng Tôi – Câu Chuyện Thương Hiệu | {BRAND_NAME}</title>
         <meta
           name="description"
-          content="Khám phá hành trình xây dựng thương hiệu dép thời trang ABABAS – Bước đi phong cách, tự tin tỏa sáng."
+          content="Khám phá hành trình xây dựng thương hiệu dép thời trang ABABAS – Dép xinh nâng tầm phong cách, êm ái từng bước chân."
         />
-        <link rel="canonical" href="https://ababas.netlify.app/ve-chung-toi" />
       </Helmet>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         
-        {/* Section 1: Hero Split Layout */}
-        <div className="bg-white rounded-card p-8 sm:p-14 border border-gray-100 shadow-sm grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-          <div className="space-y-5">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-pill bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
-              <Sparkles size={14} />
-              <span>Khởi Nguồn Thương Hiệu</span>
+        {/* Hero Split Layout */}
+        <div className="glass-card p-8 sm:p-14 bg-surface-cream grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div className="lg:col-span-7 space-y-5">
+            <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-secondary-container text-dark text-xs font-montserrat font-bold uppercase tracking-wider">
+              <Sparkles size={14} className="text-secondary-rose" />
+              <span>Câu Chuyện Thương Hiệu</span>
             </div>
-            <h1 className="text-3xl sm:text-5xl font-black text-navy leading-tight">
-              Định Nghĩa Lại <span className="text-primary">Đôi Dép</span> Cho Thế Hệ Mới
+
+            <h1 className="text-3xl sm:text-5xl font-quicksand font-bold text-dark leading-tight">
+              Định Nghĩa Lại <span className="text-primary">Đôi Dép</span> Cho Thế Hệ Trẻ
             </h1>
-            <p className="text-sm sm:text-base text-muted leading-relaxed">
-              ABABAS ra đời với niềm tin rằng dép không đơn thuần là vật dụng đi lại trong nhà hay đi chơi, mà là một phụ kiện thời trang thể hiện cá tính tự do và sự phóng khoáng của giới trẻ.
+
+            <p className="text-sm sm:text-base text-on-surface-variant font-montserrat leading-relaxed">
+              Ababas ra đời từ khát khao tạo ra những đôi dép vừa có độ êm ái vượt trội từ công nghệ bọt khí EVA cao cấp, vừa là món phụ kiện thời trang sành điệu giúp bạn tự tin thể hiện chất riêng mỗi ngày.
             </p>
-            <p className="text-sm text-muted leading-relaxed">
-              Chúng tôi tập trung vào 3 yếu tố cốt lõi: <strong>Độ êm ái vượt trội</strong>, <strong>Thiết kế form dáng trẻ trung</strong> và <strong>Độ bền đúc khối đỉnh cao</strong>.
-            </p>
+
+            <div className="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant/30">
+              <div className="flex items-start gap-2.5">
+                <CheckCircle2 size={18} className="text-primary shrink-0 mt-0.5" />
+                <span className="text-xs font-montserrat text-dark font-medium">Chất liệu EVA đúc nguyên khối siêu nhẹ</span>
+              </div>
+              <div className="flex items-start gap-2.5">
+                <CheckCircle2 size={18} className="text-secondary-rose shrink-0 mt-0.5" />
+                <span className="text-xs font-montserrat text-dark font-medium">Hơn 100+ mẫu Charm 3D DIY độc quyền</span>
+              </div>
+            </div>
           </div>
 
-          <div className="relative rounded-card overflow-hidden h-80 sm:h-96 shadow-card">
+          <div className="lg:col-span-5 rounded-2xl overflow-hidden shadow-card">
             <img
-              src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=800&auto=format&fit=crop&q=80"
-              alt="ABABAS Story"
-              className="w-full h-full object-cover"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsBG4c2MrWIaefSpc_9IpcxUiTeDfXQIHg6YpPEkmPS0gdOFVTaMqbbltshN1ADLcvjc6vJVkxvP2YOBYbsdVuptbggq4NQhB6xMDFZnHtWV9kkAItSLSncRsPWpyU3uZUCroFTKrn1V0247pTXUUw9jvEBAeV6WcOfnZcS2fBvIZbil0IMGTzhx2G1SCWZBk9CqjfTjOTfBN2cLU4bOL7O2by9qd4IBScPn8U08UvdpmQBMql3Kw7tA"
+              alt="Ababas Studio"
+              className="w-full h-80 lg:h-96 object-cover"
             />
           </div>
         </div>
 
-        {/* Section 2: Timeline */}
-        <div className="bg-white rounded-card p-8 sm:p-12 border border-gray-100 shadow-sm">
-          <div className="text-center max-w-xl mx-auto mb-12">
-            <span className="text-xs font-bold text-primary uppercase tracking-wider">Hành Trình Kiến Tạo</span>
-            <h2 className="text-2xl sm:text-3xl font-black text-navy mt-1">Cột Mốc Phát Triển</h2>
+        {/* 3 Core Values */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="bento-card p-8 text-center">
+            <div className="w-14 h-14 rounded-2xl bg-primary-light text-primary flex items-center justify-center mx-auto mb-4">
+              <Heart size={26} />
+            </div>
+            <h3 className="font-quicksand font-bold text-xl text-dark mb-2">Êm Ái Tuyệt Đối</h3>
+            <p className="text-xs sm:text-sm text-on-surface-variant font-montserrat leading-relaxed">
+              Trọng lượng siêu nhẹ chỉ từ 190g kết hợp đệm bọt khí nâng đỡ cấu trúc vòm chân hoàn hảo.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-            {timeline.map((item, idx) => (
-              <div key={idx} className="p-6 rounded-card bg-light border border-gray-100 relative">
-                <div className="text-3xl font-black text-primary mb-2">{item.year}</div>
-                <h3 className="font-bold text-base text-navy mb-2">{item.title}</h3>
-                <p className="text-xs text-muted leading-relaxed">{item.desc}</p>
+          <div className="bento-card p-8 text-center">
+            <div className="w-14 h-14 rounded-2xl bg-secondary-container text-secondary-rose flex items-center justify-center mx-auto mb-4">
+              <Sparkles size={26} />
+            </div>
+            <h3 className="font-quicksand font-bold text-xl text-dark mb-2">Sáng Tạo Không Giới Hạn</h3>
+            <p className="text-xs sm:text-sm text-on-surface-variant font-montserrat leading-relaxed">
+              Thỏa sức gắn charm 3D theo sở thích cá nhân, biến mỗi đôi dép thành tác phẩm độc bản.
+            </p>
+          </div>
+
+          <div className="bento-card p-8 text-center">
+            <div className="w-14 h-14 rounded-2xl bg-tertiary-container text-tertiary flex items-center justify-center mx-auto mb-4">
+              <ShieldCheck size={26} />
+            </div>
+            <h3 className="font-quicksand font-bold text-xl text-dark mb-2">Chất Lượng Bền Bỉ</h3>
+            <p className="text-xs sm:text-sm text-on-surface-variant font-montserrat leading-relaxed">
+              Kháng nước 100%, không bong keo, không hôi chân và bảo hành chính hãng 6 tháng.
+            </p>
+          </div>
+        </div>
+
+        {/* Timeline */}
+        <div className="glass-card p-8 sm:p-12 bg-white">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl sm:text-3xl font-quicksand font-bold text-dark mb-2">
+              Hành Trình Phát Triển
+            </h2>
+            <p className="text-xs sm:text-sm text-on-surface-variant font-montserrat">
+              Những dấu mốc đáng nhớ trên con đường định vị thương hiệu dép giới trẻ.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {milestones.map((m, i) => (
+              <div key={i} className="p-6 rounded-2xl bg-surface-cream border border-outline-variant/30 text-center">
+                <div className="font-quicksand font-bold text-3xl text-primary mb-2">{m.year}</div>
+                <h4 className="font-quicksand font-bold text-base text-dark mb-2">{m.title}</h4>
+                <p className="text-xs font-montserrat text-on-surface-variant leading-relaxed">{m.desc}</p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Section 3: Mission & Vision Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-white rounded-card p-8 border border-gray-100 shadow-sm flex flex-col justify-between">
-            <div className="w-14 h-14 rounded-btn bg-primary/10 flex items-center justify-center text-primary mb-6">
-              <Target size={28} />
-            </div>
-            <div>
-              <h3 className="text-xl font-bold text-navy mb-3">Sứ Mệnh</h3>
-              <p className="text-sm text-muted leading-relaxed">
-                Tạo nên những đôi dép thời trang chất lượng cao nhất với mức giá hợp lý nhất cho mọi bạn trẻ Việt Nam, đồng hành cùng bạn trên mọi hành trình khám phá cuộc sống.
-              </p>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-card p-8 border border-gray-100 shadow-sm flex flex-col justify-between">
-            <div className="w-14 h-14 rounded-btn bg-navy/10 flex items-center justify-center text-navy mb-6">
-              <Compass size={28} />
-            </div>
-            <div>
-              <h3 className="text-xl font-bold text-navy mb-3">Tầm Nhìn</h3>
-              <p className="text-sm text-muted leading-relaxed">
-                Trở thành thương hiệu dép thời trang Gen Z hàng đầu Đông Nam Á, được công nhận bởi sự sáng tạo không ngừng nghỉ và trách nhiệm với môi trường.
-              </p>
-            </div>
-          </div>
-        </div>
-
       </div>
-
-      {/* Section 4: Stats Counter */}
-      <StatsCounter />
-
-      {/* Section 5: Team Cards */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
-        <div className="text-center max-w-xl mx-auto mb-12">
-          <span className="text-xs font-bold text-primary uppercase tracking-wider">Đội Ngũ Phát Triển</span>
-          <h2 className="text-2xl sm:text-3xl font-black text-navy mt-1">Con Người Đằng Sau ABABAS</h2>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {team.map((member, idx) => (
-            <div
-              key={idx}
-              className="bg-white rounded-card overflow-hidden border border-gray-100 shadow-sm hover:shadow-card-hover transition-all duration-300 group"
-            >
-              <div className="aspect-square bg-light overflow-hidden">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-              <div className="p-4 text-center">
-                <h4 className="font-bold text-sm text-navy">{member.name}</h4>
-                <p className="text-xs text-primary font-semibold mt-0.5">{member.role}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
     </motion.div>
   );
 }

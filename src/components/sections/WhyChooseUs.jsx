@@ -1,83 +1,89 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Trophy, Palette, Truck, RefreshCw, Sparkles } from 'lucide-react';
-import { useScrollAnimation } from '../../hooks/useScrollAnimation';
-import { staggerContainerVariant, fadeUpVariant } from '../../utils/animations';
+import { Droplets, ArrowUpCircle, Sparkles, Wand2 } from 'lucide-react';
+
+const features = [
+  {
+    icon: Droplets,
+    title: 'Chất liệu EVA Cao Cấp',
+    description: 'Đúc nguyên khối siêu nhẹ, kháng khuẩn, chống thấm nước và chống trơn trượt chuẩn an toàn mọi bề mặt.',
+    badge: 'Chống trượt 100%',
+    bgIcon: 'bg-secondary-container text-secondary-rose',
+  },
+  {
+    icon: ArrowUpCircle,
+    title: 'Đế Dày Nâng Chiều Cao',
+    description: 'Thiết kế đế bánh mì 4 - 5cm tăng chiều cao tự nhiên, êm ái giảm áp lực lên gót chân suốt ngày dài.',
+    badge: 'Đế dày 5cm',
+    bgIcon: 'bg-tertiary-container text-tertiary',
+  },
+  {
+    icon: Sparkles,
+    title: 'Charm 3D Sắc Nét DIY',
+    description: 'Tùy biến không giới hạn với hàng trăm mẫu charm 3D nổi bật, dễ dàng tháo lắp theo cá tính riêng.',
+    badge: 'Tự do sáng tạo',
+    bgIcon: 'bg-primary-light text-primary',
+  },
+  {
+    icon: Wand2,
+    title: 'Thiết Kế Thời Thượng',
+    description: 'Phong cách Hàn Quốc trẻ trung, bảng màu pastel ngọt ngào, dễ dàng phối mọi trang phục dạo phố.',
+    badge: 'Chuẩn Vibe Gen Z',
+    bgIcon: 'bg-surface-variant text-dark',
+  },
+];
 
 export default function WhyChooseUs() {
-  const [sectionRef, isVisible] = useScrollAnimation();
-
-  const features = [
-    {
-      icon: <Trophy size={28} className="text-primary" />,
-      bg: 'bg-beige',
-      title: 'Chất Lượng Vượt Trội',
-      description: 'Chất liệu EVA đúc nguyên khối siêu nhẹ, chống trơn trượt và đạt độ bền thử nghiệm trên 100.000 bước đi.',
-    },
-    {
-      icon: <Palette size={28} className="text-secondary-dark" />,
-      bg: 'bg-secondary-light',
-      title: 'Thiết Kế Tối Giản',
-      description: 'Màu sắc phong phú, form dáng chuẩn công thái học nâng niu vòm chân, phối đồ thời thượng cho giới trẻ.',
-    },
-    {
-      icon: <Truck size={28} className="text-tertiary-dark" />,
-      bg: 'bg-tertiary-light',
-      title: 'Giao Hàng Toàn Quốc',
-      description: 'Đóng gói hộp sang trọng, hỗ trợ kiểm tra hàng trước khi thanh toán và giao nhanh hỏa tốc.',
-    },
-    {
-      icon: <RefreshCw size={28} className="text-primary" />,
-      bg: 'bg-beige',
-      title: 'Đổi Trả Dễ Dàng',
-      description: 'Hỗ trợ đổi size miễn phí tận nhà trong vòng 30 ngày nếu không vừa vặn bàn chân.',
-    },
-  ];
-
   return (
-    <section ref={sectionRef} className="py-20 bg-light font-body">
+    <section className="w-full section-padding bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-pill bg-beige text-dark border border-border text-xs font-semibold uppercase tracking-wider mb-3 font-headline">
-            <Sparkles size={14} className="text-primary" />
-            <span>Cam Kết Thương Hiệu</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-dark font-headline tracking-tight mb-3">
-            Tại Sao Chọn ABABAS?
+          <span className="text-xs font-montserrat font-bold uppercase tracking-wider text-secondary-rose bg-secondary-container px-3.5 py-1 rounded-full">
+            Đặc quyền thương hiệu
+          </span>
+          <h2 className="text-2xl sm:text-4xl font-quicksand font-bold text-dark mt-3 mb-4">
+            Vì sao chọn Ababas?
           </h2>
-          <p className="text-sm sm:text-base text-muted font-body">
-            Trải nghiệm sự khác biệt trên từng bước đi cùng triết lý: High Style, Low Effort.
+          <div className="w-16 h-1 bg-primary mx-auto rounded-full mb-4" />
+          <p className="text-sm sm:text-base text-on-surface-variant font-montserrat">
+            Mỗi đôi dép Ababas không chỉ là một phụ kiện di chuyển mà còn là tuyên ngôn phong cách cá nhân đầy tự tin.
           </p>
         </div>
 
-        {/* 4 Feature Cards */}
-        <motion.div
-          variants={staggerContainerVariant}
-          initial="hidden"
-          animate={isVisible ? 'visible' : 'hidden'}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-        >
-          {features.map((f, index) => (
-            <motion.div
-              key={index}
-              variants={fadeUpVariant}
-              whileHover={{ y: -6 }}
-              className="bg-white rounded-card p-6 border border-border shadow-card hover:shadow-card-hover transition-all duration-300 flex flex-col items-center text-center group"
-            >
-              <div className={`w-14 h-14 rounded-2xl ${f.bg} flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-105 border border-border`}>
-                {f.icon}
-              </div>
-              <h3 className="font-bold text-base text-dark mb-2 font-headline">
-                {f.title}
-              </h3>
-              <p className="text-xs sm:text-sm text-muted leading-relaxed font-body">
-                {f.description}
-              </p>
-            </motion.div>
-          ))}
-        </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {features.map((item, idx) => {
+            const Icon = item.icon;
+            return (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="bento-card p-8 flex flex-col items-center text-center group"
+              >
+                <div className={`w-16 h-16 rounded-2xl ${item.bgIcon} flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 shadow-sm`}>
+                  <Icon size={30} />
+                </div>
+                
+                <h3 className="font-quicksand font-bold text-xl text-dark mb-3">
+                  {item.title}
+                </h3>
+                
+                <p className="font-montserrat text-sm text-on-surface-variant leading-relaxed">
+                  {item.description}
+                </p>
+
+                <div className="mt-6 pt-4 border-t border-outline-variant/30 w-full flex justify-center">
+                  <span className="text-xs font-bold text-primary bg-primary-light px-3 py-1 rounded-full">
+                    {item.badge}
+                  </span>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
 
       </div>
     </section>

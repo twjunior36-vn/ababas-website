@@ -39,6 +39,38 @@ export const trackProductView = (product) => {
   }
 };
 
+export const trackAddToCart = (product) => {
+  if (!product) return;
+  try {
+    ReactGA.event('add_to_cart', {
+      currency: 'VND',
+      value: product.price,
+      items: [{ 
+        item_id: product.id, 
+        item_name: product.name,
+        item_category: product.category,
+        price: product.price,
+        quantity: product.quantity || 1
+      }]
+    });
+  } catch (error) {
+    console.warn('[GA4] Add to cart track error:', error);
+  }
+};
+
+export const trackEvent = (action, category, label, value) => {
+  try {
+    ReactGA.event({
+      action,
+      category,
+      label,
+      value
+    });
+  } catch (error) {
+    console.warn('[GA4] Event track error:', error);
+  }
+};
+
 export const trackSearch = (searchTerm) => {
   try {
     ReactGA.event('search', { search_term: searchTerm });

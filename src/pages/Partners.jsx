@@ -1,20 +1,63 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { Handshake, Store, TrendingUp, Award, Quote, ArrowRight } from 'lucide-react';
-import Button from '../components/ui/Button';
-import { partnerStats, partnerCategories, testimonials } from '../data/partners';
+import { Handshake, Store, TrendingUp, Award, Quote, ArrowRight, CheckCircle2, ShieldCheck, Truck, PhoneCall, Sparkles } from 'lucide-react';
 import { pageTransitionVariant, staggerContainerVariant, fadeUpVariant } from '../utils/animations';
 import { trackPageView } from '../utils/analytics';
+import { useUI } from '../context/UIContext';
 import { BRAND_NAME } from '../utils/constants';
 
+const tiers = [
+  {
+    name: 'Đại Lý Bạc (Silver)',
+    minOrder: 'Đơn từ 10.000.000₫',
+    discount: 'Chiết khấu 30%',
+    perks: ['Cung cấp hình ảnh sản phẩm chuẩn studio', 'Hỗ trợ đổi size 7 ngày', 'Giao hàng miễn phí toàn quốc'],
+    badge: 'Khởi đầu thuận lợi',
+    featured: false
+  },
+  {
+    name: 'Đại Lý Vàng (Gold)',
+    minOrder: 'Đơn từ 30.000.000₫',
+    discount: 'Chiết khấu 38%',
+    perks: ['Tặng kệ trưng bày POSM chính hãng', 'Ưu tiên nhập các BST giới hạn', 'Hỗ trợ chạy quảng cáo khu vực', 'Chiết khấu thưởng theo quý'],
+    badge: 'Phổ biến nhất',
+    featured: true
+  },
+  {
+    name: 'Nhà Phân Phối Kim Cương (Diamond)',
+    minOrder: 'Đơn từ 80.000.000₫',
+    discount: 'Chiết khấu 45%',
+    perks: ['Độc quyền phân phối theo khu vực / tỉnh', 'Hỗ trợ thiết kế bảng hiệu showroom', 'Chính sách công nợ linh hoạt 30 ngày', 'Chuyên viên đào tạo bán hàng riêng'],
+    badge: 'Đặc quyền tối đa',
+    featured: false
+  }
+];
+
 export default function Partners() {
-  const navigate = useNavigate();
+  const { showToast } = useUI();
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    city: '',
+    businessType: 'shop',
+    message: ''
+  });
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
-    trackPageView('/doi-tac', `Đối Tác & Đại Lý | ${BRAND_NAME}`);
+    trackPageView('/doi-tac', `Hợp Tác Đại Lý & B2B | ${BRAND_NAME}`);
   }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (formData.name && formData.phone) {
+      setIsSubmitted(true);
+      showToast('Đã gửi thông tin đăng ký đại lý! Chuyên viên B2B sẽ liên hệ trong 2h.', 'success');
+    }
+  };
 
   return (
     <motion.div
@@ -22,125 +65,194 @@ export default function Partners() {
       initial="initial"
       animate="animate"
       exit="exit"
-      className="partners-page py-10 bg-light min-h-screen font-poppins"
+      className="partners-page py-12 bg-background min-h-screen"
     >
       <Helmet>
-        <title>Mạng Lưới Đối Tác & Đại Lý Phân Phối | {BRAND_NAME}</title>
+        <title>Hợp Tác Kinh Doanh & Đại Lý B2B | {BRAND_NAME}</title>
         <meta
           name="description"
-          content="Hợp tác kinh doanh cùng thương hiệu dép thời trang ABABAS. Chính sách chiết khấu đại lý hấp dẫn và hỗ trợ toàn diện."
+          content="Chính sách chiết khấu đại lý dép thời trang Ababas lên đến 45%, hỗ trợ toàn diện tư liệu marketing POSM và nguồn hàng chất lượng cao."
         />
-        <link rel="canonical" href="https://ababas.netlify.app/doi-tac" />
       </Helmet>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         
-        {/* Section 1: Page Hero */}
-        <div className="bg-white rounded-card p-8 sm:p-12 border border-gray-100 shadow-sm text-center">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-pill bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-3">
-            <Handshake size={15} />
-            <span>Mạng Lưới Phân Phối</span>
+        {/* Hero Section */}
+        <div className="glass-card p-8 sm:p-14 text-center bg-surface-cream">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-secondary-container text-dark text-xs font-montserrat font-bold uppercase tracking-wider mb-4">
+            <Handshake size={15} className="text-secondary-rose" />
+            <span>Mạng Lưới Phân Phối Toàn Quốc</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl font-black text-navy mb-3">
-            Đối Tác & Đại Lý ABABAS
+          <h1 className="text-3xl sm:text-5xl font-quicksand font-bold text-dark mb-4">
+            Hợp Tác Kinh Doanh Cùng Ababas
           </h1>
-          <p className="text-xs sm:text-sm text-muted max-w-2xl mx-auto">
-            Đồng hành cùng các sàn thương mại điện tử hàng đầu và chuỗi cửa hàng bán lẻ sneaker trên toàn quốc để mang sản phẩm chất lượng đến với hàng triệu khách hàng.
+          <p className="text-sm sm:text-base text-on-surface-variant font-montserrat max-w-2xl mx-auto leading-relaxed">
+            Đồng hành cùng thương hiệu dép EVA & Charm 3D hàng đầu dành cho giới trẻ, bứt phá doanh số với chính sách chiết khấu đại lý tốt nhất thị trường.
           </p>
         </div>
 
-        {/* Section 2: Stats Bar (Orange BG) */}
-        <div className="bg-primary text-white rounded-card p-8 shadow-glow grid grid-cols-1 md:grid-cols-3 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-white/20">
-          {partnerStats.map((st, i) => (
-            <div key={i} className="py-2 md:py-0">
-              <div className="text-3xl sm:text-4xl font-black mb-1">{st.value}</div>
-              <div className="text-xs font-bold uppercase tracking-wider text-white/90">{st.label}</div>
+        {/* Stats Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {[
+            { num: '150+', label: 'Điểm bán & Showroom' },
+            { num: '45%', label: 'Chiết khấu đại lý tối đa' },
+            { num: '50.000+', label: 'Đôi dép xuất kho / tháng' },
+            { num: '24h', label: 'Thời gian xử lý giao hàng' }
+          ].map((st, i) => (
+            <div key={i} className="glass-card p-6 text-center bg-white">
+              <div className="text-3xl sm:text-4xl font-quicksand font-bold text-primary mb-1.5">{st.num}</div>
+              <p className="text-xs font-montserrat font-bold text-muted uppercase tracking-wider">{st.label}</p>
             </div>
           ))}
         </div>
 
-        {/* Section 3: Partner Logo Grid Grouped by Category */}
-        <div className="space-y-10">
-          {partnerCategories.map((group, idx) => (
-            <div key={idx} className="bg-white rounded-card p-6 sm:p-8 border border-gray-100 shadow-sm">
-              <h2 className="text-lg sm:text-xl font-bold text-navy mb-6 pb-3 border-b border-gray-100 flex items-center gap-2">
-                <Store size={20} className="text-primary" />
-                <span>{group.category}</span>
-              </h2>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {group.partners.map((p) => (
-                  <div
-                    key={p.id}
-                    className="p-6 rounded-card bg-light border border-gray-100 shadow-xs hover:shadow-card hover:border-primary/40 transition-all group"
-                  >
-                    <div className="flex items-center justify-between mb-3">
-                      <span className="text-[11px] font-bold text-primary bg-primary/10 px-2.5 py-0.5 rounded-pill">
-                        {p.badge}
-                      </span>
-                    </div>
-
-                    <div className="text-xl font-black text-navy tracking-tight mb-2 group-hover:text-primary transition-colors">
-                      {p.logoText}
-                    </div>
-
-                    <p className="text-xs text-muted leading-relaxed">
-                      {p.desc}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Section 4: Testimonial Cards */}
-        <div className="bg-white rounded-card p-6 sm:p-10 border border-gray-100 shadow-sm">
-          <div className="text-center max-w-xl mx-auto mb-10">
-            <span className="text-xs font-bold uppercase tracking-wider text-primary">Đánh Giá Hợp Tác</span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-navy mt-1">
-              Đối Tác Nói Gì Về ABABAS?
+        {/* Tiers Breakdown */}
+        <div>
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-xs font-montserrat font-bold uppercase tracking-wider text-secondary-rose bg-secondary-container px-3.5 py-1 rounded-full">
+              Chính sách chiết khấu
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-quicksand font-bold text-dark mt-3 mb-2">
+              Các Gói Hợp Tác Đại Lý
             </h2>
+            <p className="text-sm text-on-surface-variant font-montserrat">
+              Linh hoạt theo quy mô cửa hàng và ngân sách kinh doanh của bạn.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {testimonials.map((t, idx) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {tiers.map((t, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-card bg-light border-l-4 border-primary shadow-sm flex flex-col justify-between"
+                className={`glass-card p-8 flex flex-col justify-between relative transition-transform duration-300 hover:-translate-y-2 ${
+                  t.featured ? 'border-2 border-primary bg-surface-cream shadow-md' : 'bg-white'
+                }`}
               >
-                <div className="mb-4">
-                  <Quote size={28} className="text-primary/30 mb-2" />
-                  <p className="text-sm text-dark italic leading-relaxed">"{t.quote}"</p>
-                </div>
+                {t.featured && (
+                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-montserrat font-bold px-4 py-1 rounded-full shadow-sm">
+                    {t.badge}
+                  </span>
+                )}
+
                 <div>
-                  <div className="font-bold text-sm text-navy">{t.author}</div>
-                  <div className="text-xs text-muted">{t.role}</div>
+                  <h3 className="font-quicksand font-bold text-xl text-dark mb-1">{t.name}</h3>
+                  <p className="text-xs font-montserrat text-muted mb-4">{t.minOrder}</p>
+                  
+                  <div className="text-2xl sm:text-3xl font-quicksand font-bold text-primary mb-6">
+                    {t.discount}
+                  </div>
+
+                  <ul className="space-y-3 font-montserrat text-xs sm:text-sm text-on-surface-variant mb-8">
+                    {t.perks.map((p, pi) => (
+                      <li key={pi} className="flex items-start gap-2.5">
+                        <CheckCircle2 size={16} className="text-secondary-rose shrink-0 mt-0.5" />
+                        <span>{p}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
+
+                <a
+                  href="#b2b-form"
+                  className={`w-full py-3 rounded-full text-center font-montserrat font-bold text-xs transition-all ${
+                    t.featured ? 'btn-primary' : 'btn-secondary'
+                  }`}
+                >
+                  Đăng ký gói này
+                </a>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Section 5: CTA Section */}
-        <div className="bg-navy text-white rounded-card p-8 sm:p-12 text-center relative overflow-hidden shadow-2xl">
-          <div className="max-w-xl mx-auto space-y-4 relative z-10">
-            <h2 className="text-2xl sm:text-3xl font-black">
-              Trở Thành Đại Lý Phân Phối Cùng ABABAS
-            </h2>
-            <p className="text-xs sm:text-sm text-gray-300">
-              Nhận ngay chính sách chiết khấu hấp dẫn, hỗ trợ kệ trưng bày POSM và tài liệu truyền thông thương hiệu độc quyền.
-            </p>
-            <div className="pt-2">
-              <Button
-                variant="primary"
-                size="lg"
-                onClick={() => navigate('/lien-he')}
-                icon={<ArrowRight size={18} />}
-              >
-                Liên Hệ Ngay
-              </Button>
+        {/* B2B Registration Form */}
+        <div id="b2b-form" className="glass-card p-8 sm:p-14 bg-surface-cream">
+          <div className="max-w-2xl mx-auto">
+            <div className="text-center mb-10">
+              <h2 className="text-2xl sm:text-3xl font-quicksand font-bold text-dark mb-2">
+                Đăng Ký Nhận Báo Giá & Hợp Tác B2B
+              </h2>
+              <p className="text-xs sm:text-sm text-on-surface-variant font-montserrat">
+                Điền thông tin bên dưới, chuyên viên phân phối của Ababas sẽ liên hệ tư vấn trong vòng 2 giờ làm việc.
+              </p>
             </div>
+
+            {isSubmitted ? (
+              <div className="p-8 text-center bg-white rounded-2xl border border-secondary-container">
+                <CheckCircle2 size={48} className="text-primary mx-auto mb-3" />
+                <h3 className="text-xl font-quicksand font-bold text-dark mb-2">Gửi Thông Tin Thành Công!</h3>
+                <p className="text-xs font-montserrat text-on-surface-variant">
+                  Cảm ơn bạn đã quan tâm. Đội ngũ Ababas B2B sẽ gọi điện trực tiếp qua số điện thoại bạn cung cấp.
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4 font-montserrat text-xs sm:text-sm">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block font-bold text-dark mb-1.5">Họ và tên *</label>
+                    <input
+                      type="text"
+                      required
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      placeholder="Nguyễn Văn A"
+                      className="w-full px-4 py-3 rounded-xl border border-outline-variant bg-white focus:outline-none focus:border-primary"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-bold text-dark mb-1.5">Số điện thoại / Zalo *</label>
+                    <input
+                      type="tel"
+                      required
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      placeholder="0987 654 321"
+                      className="w-full px-4 py-3 rounded-xl border border-outline-variant bg-white focus:outline-none focus:border-primary"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block font-bold text-dark mb-1.5">Email liên hệ</label>
+                    <input
+                      type="email"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      placeholder="email@example.com"
+                      className="w-full px-4 py-3 rounded-xl border border-outline-variant bg-white focus:outline-none focus:border-primary"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-bold text-dark mb-1.5">Khu vực / Tỉnh thành *</label>
+                    <input
+                      type="text"
+                      required
+                      value={formData.city}
+                      onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+                      placeholder="Hà Nội, TP.HCM, Đà Nẵng,..."
+                      className="w-full px-4 py-3 rounded-xl border border-outline-variant bg-white focus:outline-none focus:border-primary"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block font-bold text-dark mb-1.5">Lời nhắn hoặc mô tả mô hình kinh doanh hiện tại</label>
+                  <textarea
+                    rows={3}
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    placeholder="Tôi đang có shop giày dép thời trang tại Cầu Giấy và muốn nhập số lượng 200 đôi..."
+                    className="w-full px-4 py-3 rounded-xl border border-outline-variant bg-white focus:outline-none focus:border-primary"
+                  />
+                </div>
+
+                <button type="submit" className="btn-primary w-full py-4 text-sm mt-2">
+                  <PhoneCall size={16} />
+                  <span>Gửi yêu cầu hợp tác ngay</span>
+                </button>
+              </form>
+            )}
           </div>
         </div>
 

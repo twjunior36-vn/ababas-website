@@ -4,76 +4,97 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        // Google Stitch Design System "Kinetic Leisure"
-        primary: '#FF6B35',          // Vibrant Brand Orange
+        // Stitch Ababas Brand Design System Tokens
+        primary: '#FF6B35',          // Core Brand Orange
         'primary-hover': '#E85A26',
-        'primary-container': '#FF6B35',
         'primary-dark': '#AB3500',
         'primary-light': '#FFF0EB',
         'primary-fixed': '#FFDBD0',
-        
+        'primary-olive': '#5E604D',  // Stitch Earth Tone
+
         secondary: '#1A1A2E',        // Deep Navy
         'secondary-light': '#5D5C74',// Slate Purple-Navy
-        'secondary-container': '#E2E0FC',
-        'secondary-fixed': '#1A1A2E',
-        
-        tertiary: '#C9A900',         // Gold Accent
-        'tertiary-fixed': '#FFE16D',
-        gold: '#FFD700',
-        
-        navy: '#1A1A2E',             // Deep Navy
-        'navy-light': '#2D2D44',
-        
+        'secondary-rose': '#81515A', // Stitch Blush Rose
+        'secondary-container': '#FDBEC9', // Soft Pastel Pink
+        'secondary-fixed': '#FFD9DF',
+        'secondary-fixed-dim': '#F4B6C1',
+
+        tertiary: '#0C6780',         // Stitch Ocean Teal
+        'tertiary-container': '#E5F6FF',
+        'tertiary-fixed': '#BAEAFF',
+        'tertiary-fixed-dim': '#89D0ED',
+
+        gold: '#D4AF37',             // Stitch Premium Gold
+        'premium-gold': '#D4AF37',
+        'pastel-mint': '#B2D8D8',
+        'cement-gray': '#A9A9A9',
+
         surface: '#FCF9F8',          // Stitch Soft Canvas
+        'surface-cream': '#FDFDF5',  // Stitch Cream Glass
         'surface-container': '#F0EDED',
         'surface-container-low': '#F6F3F2',
+        'surface-container-high': '#EAE7E7',
+        'surface-container-highest': '#E5E2E1',
+        'surface-variant': '#E5E2E1',
         'pure-white': '#FFFFFF',
-        
-        light: '#F9F9F9',            // Off-white Background
-        dark: '#1B1C1C',             // Text main / On-surface
-        'on-surface': '#1B1C1C',
-        muted: '#6B7280',            // Text Muted
-        border: '#E5E7EB',           // Border light
-        outline: '#8D7168',
-        'outline-variant': '#E1BFB5',
+
+        light: '#FCF9F8',
+        dark: '#1C1B1B',             // On-surface
+        'on-surface': '#1C1B1B',
+        'on-surface-variant': '#47473F',
+        muted: '#6B7280',
+        border: '#E5E7EB',
+        outline: '#78776E',
+        'outline-variant': '#C8C7BC',
       },
       fontFamily: {
+        quicksand: ['Quicksand', 'sans-serif'],
+        montserrat: ['Montserrat', 'sans-serif'],
         poppins: ['Poppins', 'sans-serif'],
-        sans: ['Poppins', 'sans-serif'],
-        headline: ['Poppins', 'sans-serif'],
-        body: ['Poppins', 'sans-serif'],
+        headline: ['Quicksand', 'Poppins', 'sans-serif'],
+        body: ['Montserrat', 'Poppins', 'sans-serif'],
+        sans: ['Montserrat', 'Poppins', 'sans-serif'],
       },
       fontSize: {
-        'headline-xl': ['64px', { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '900' }],
-        'headline-xl-mobile': ['40px', { lineHeight: '1.2', fontWeight: '900' }],
+        'display-lg': ['48px', { lineHeight: '56px', letterSpacing: '-0.02em', fontWeight: '700' }],
+        'display-lg-mobile': ['32px', { lineHeight: '40px', fontWeight: '700' }],
         'headline-lg': ['40px', { lineHeight: '1.2', fontWeight: '700' }],
-        'headline-md': ['24px', { lineHeight: '1.3', fontWeight: '600' }],
-        'body-md': ['16px', { lineHeight: '1.6', fontWeight: '400' }],
-        'label-sm': ['14px', { lineHeight: '1.4', fontWeight: '400' }],
+        'headline-md': ['24px', { lineHeight: '32px', fontWeight: '600' }],
+        'body-lg': ['18px', { lineHeight: '28px', fontWeight: '400' }],
+        'body-md': ['16px', { lineHeight: '24px', fontWeight: '400' }],
+        'label-bold': ['14px', { lineHeight: '20px', fontWeight: '700' }],
+        'label-sm': ['12px', { lineHeight: '16px', fontWeight: '500' }],
       },
       borderRadius: {
-        card: '12px',
-        btn: '8px',
+        card: '20px',
+        bento: '24px',
+        btn: '9999px',
         pill: '9999px',
       },
       boxShadow: {
-        soft: '0 4px 20px rgba(0, 0, 0, 0.08)',
-        hover: '0 10px 25px rgba(0, 0, 0, 0.12)',
-        card: '0 4px 20px rgba(0, 0, 0, 0.05)',
-        'card-hover': '0 12px 30px rgba(255, 107, 53, 0.15)',
-        nav: '0 2px 20px rgba(0, 0, 0, 0.08)',
-        glow: '0 10px 25px rgba(255, 107, 53, 0.3)',
+        soft: '0 4px 20px rgba(0, 0, 0, 0.06)',
+        hover: '0 15px 35px rgba(0, 0, 0, 0.1)',
+        card: '0 10px 30px -10px rgba(94, 96, 77, 0.08)',
+        'card-hover': '0 20px 40px -10px rgba(94, 96, 77, 0.15)',
+        'rose-glow': '0 8px 24px rgba(253, 190, 201, 0.5)',
+        'orange-glow': '0 10px 25px rgba(255, 107, 53, 0.3)',
+        'ambient': '0 30px 60px rgba(94, 96, 77, 0.08)',
+      },
+      spacing: {
+        'margin-desktop': '64px',
+        'margin-mobile': '20px',
+        'gutter': '24px',
+        'bento-gap': '16px',
       },
       animation: {
         'fade-up': 'fadeUp 0.5s ease forwards',
         'fade-in': 'fadeIn 0.3s ease forwards',
-        'ken-burns': 'kenBurns 8s ease infinite',
         'float': 'float 3s ease-in-out infinite',
         'pulse-soft': 'pulseSoft 2s ease infinite',
-        'count-up': 'countUp 2s ease forwards',
       }
     }
   },

@@ -14,10 +14,9 @@ export default function ProductFilter({
   const [isPriceOpen, setIsPriceOpen] = useState(true);
 
   const categories = [
-    { id: 'sandal', label: 'Dép Sandal' },
-    { id: 'lao', label: 'Dép Lào' },
-    { id: 'cao-got', label: 'Dép Cao Gót' },
-    { id: 'the-thao', label: 'Dép Thể Thao' },
+    { id: 'clog', label: 'Dép Clog Bánh Mì' },
+    { id: 'sandal', label: 'Dép Sandal EVA' },
+    { id: 'charm', label: 'Set Charm 3D DIY' },
   ];
 
   const colors = [

@@ -1,60 +1,78 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Flame } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 import ProductCard from '../product/ProductCard';
-import Button from '../ui/Button';
-import { getFeaturedProducts } from '../../data/products';
-import { useScrollAnimation } from '../../hooks/useScrollAnimation';
-import { staggerContainerVariant, fadeUpVariant } from '../../utils/animations';
+import { products } from '../../data/products';
 
 export default function FeaturedProducts() {
-  const navigate = useNavigate();
-  const [sectionRef, isVisible] = useScrollAnimation();
-  const featured = getFeaturedProducts();
+  const [activeTab, setActiveTab] = useState('all');
+
+  const filteredProducts = products.filter((p) => {
+    if (activeTab === 'clog') return p.category === 'clog';
+    if (activeTab === 'sandal') return p.category === 'sandal';
+    if (activeTab === 'charm') return p.category === 'charm';
+    return true;
+  }).slice(0, 4);
 
   return (
-    <section id="featured-products-section" ref={sectionRef} className="py-20 bg-light font-poppins">
+    <section className="w-full section-padding bg-surface-container-low">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-pill bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-3">
-            <Flame size={15} />
-            <span>Top Bán Chạy</span>
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-secondary-container text-dark rounded-full text-xs font-montserrat font-bold mb-3">
+              <Sparkles size={14} className="text-secondary-rose" />
+              <span>Xu hướng thịnh hành</span>
+            </div>
+            <h2 className="text-2xl sm:text-4xl font-quicksand font-bold text-dark mb-2">
+              Sản Phẩm Bán Chạy
+            </h2>
+            <p className="text-sm sm:text-base text-on-surface-variant font-montserrat">
+              Những mẫu dép và set charm 3D được yêu thích nhất mùa này.
+            </p>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-navy tracking-tight mb-3">
-            Sản Phẩm Nổi Bật
-          </h2>
-          <p className="text-sm sm:text-base text-muted">
-            Những mẫu dép được yêu thích nhất với thiết kế êm ái, bền bỉ và thời thượng.
-          </p>
+
+          {/* Category Filter Tabs */}
+          <div className="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0">
+            {[
+              { id: 'all', label: 'Tất cả' },
+              { id: 'clog', label: 'Dép Clog' },
+              { id: 'sandal', label: 'Dép Bánh Mì' },
+              { id: 'charm', label: 'Charm 3D' },
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`px-4 py-2 rounded-full text-xs font-montserrat font-bold whitespace-nowrap transition-all duration-300 ${
+                  activeTab === tab.id
+                    ? 'bg-primary text-white shadow-sm'
+                    : 'bg-white text-dark hover:bg-surface-cream border border-outline-variant/30'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
         </div>
 
-        {/* 6 Featured Products Grid */}
-        <motion.div
-          variants={staggerContainerVariant}
-          initial="hidden"
-          animate={isVisible ? 'visible' : 'hidden'}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
-        >
-          {featured.map((product) => (
-            <motion.div key={product.id} variants={fadeUpVariant}>
-              <ProductCard product={product} />
-            </motion.div>
+        {/* Product Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {filteredProducts.map((product) => (
+            <ProductCard key={product.id} product={product} />
           ))}
-        </motion.div>
+        </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-12">
-          <Button
-            variant="outline"
-            size="lg"
-            onClick={() => navigate('/san-pham')}
-            icon={<ArrowRight size={18} />}
+        <div className="mt-12 text-center">
+          <Link
+            to="/san-pham"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-white text-dark border border-outline-variant hover:border-primary hover:text-primary transition-all duration-300 font-montserrat font-bold text-sm shadow-sm hover:shadow-md"
           >
-            Xem Tất Cả Sản Phẩm
-          </Button>
+            <span>Xem toàn bộ 24+ mẫu dép</span>
+            <ArrowRight size={16} />
+          </Link>
         </div>
 
       </div>
